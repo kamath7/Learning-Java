@@ -13,7 +13,20 @@ public class Main {
 
             int hours = minutes/60;
             int remainingMinutes = minutes % 60;
-            return hours + " hh " + remainingMinutes+" mm "+ seconds+" ss ";
+            String hourString = hours + " hh";
+            String minuteString = remainingMinutes + " mm";
+            String secondsString = seconds + " hh";
+
+            if (hours < 10){
+                hourString = "0"+hourString;
+            }
+            if (remainingMinutes < 10){
+                minuteString = "0"+minuteString;
+            }
+            if (seconds < 10){
+                secondsString = "0"+secondsString;
+            }
+            return hourString +" "+ minuteString+" "+ secondsString;
         }
         return "Invalid Value";
     }
