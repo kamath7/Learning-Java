@@ -4,6 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println(getDurationString(69, 45));
+        System.out.println(getDurationString(86400));
     }
 
     public static String getDurationString(int minutes, int seconds){
@@ -17,6 +18,13 @@ public class Main {
         return "Invalid Value";
     }
     public static String getDurationString( int seconds){
+        if (  seconds >=0 ){
+            int minutes = seconds / 60;
+            int remainingSeconds = seconds % 60;
+
+           return getDurationString(minutes, remainingSeconds);
+        }
+
         return "Invalid Value";
     }
 }
