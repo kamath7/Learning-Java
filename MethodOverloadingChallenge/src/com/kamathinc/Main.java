@@ -2,6 +2,8 @@ package com.kamathinc;
 
 public class Main {
 
+    final static  String INVALID_STRING = "Invalid Value";
+
     public static void main(String[] args) {
         System.out.println(getDurationString(69, 45));
         System.out.println(getDurationString(86400));
@@ -28,7 +30,7 @@ public class Main {
             }
             return hourString +" "+ minuteString+" "+ secondsString;
         }
-        return "Invalid Value";
+        return INVALID_STRING ;
     }
     public static String getDurationString( int seconds){
         if (  seconds >=0 ){
@@ -38,6 +40,6 @@ public class Main {
            return getDurationString(minutes, remainingSeconds);
         }
 
-        return "Invalid Value";
+        return INVALID_STRING;
     }
 }
