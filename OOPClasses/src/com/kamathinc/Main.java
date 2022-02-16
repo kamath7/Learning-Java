@@ -6,7 +6,8 @@ public class Main {
 	// write your code here
         Car awesomeCar = new Car();
         Car newCar = new Car();
-
+        
+        awesomeCar.setModel("Awesome Model");
         System.out.println(awesomeCar.getClass());
     }
 }

@@ -10,6 +10,7 @@ public class Car {
     private String color;
     private String model;
 
-
-
+    public void setModel(String model){
+        this.model = model;
+    }
 }
