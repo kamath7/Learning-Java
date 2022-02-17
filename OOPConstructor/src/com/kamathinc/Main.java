@@ -18,5 +18,8 @@ public class Main {
 
         BankAccount newAcct  = new BankAccount(1000,9000, "Some Great account", "a@a.com","+917890827910");
         System.out.println(newAcct.getAccountBalance());
+
+        BankAccount anotherAcct = new BankAccount("Kams","kam@kam.com","+917867281909");
+        System.out.println(anotherAcct.getCustomerName()+" has "+anotherAcct.getAccountBalance());
     }
 }

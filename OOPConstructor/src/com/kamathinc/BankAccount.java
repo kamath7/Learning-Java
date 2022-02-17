@@ -10,14 +10,20 @@ public class BankAccount {
     private String emailAddress;
     private String phoneNumber;
 
-    public BankAccount(){
-        this(889,1000, "Lalle","b@b.com","+91828182039"); //special use of this. calling another constructor. this has to be the first statement
+    public BankAccount() {
+        this(889, 1000, "Lalle", "b@b.com", "+91828182039"); //special use of this. calling another constructor. this has to be the first statement
         System.out.println("Constructor - 1");
     }
+
+    public BankAccount(String customerName, String emailAddress, String phoneNumber) {
+        this(999,100,customerName, emailAddress, phoneNumber);
+    }
+
     //Overloading that's all
-    public BankAccount(int accountNumber, double accountBalance, String customerName, String emailAddress, String phoneNumber){
+    public BankAccount(int accountNumber, double accountBalance, String customerName, String emailAddress, String phoneNumber) {
         this.accountNumber = accountNumber;
         this.accountBalance = accountBalance;
+//        setAccountBalance(accountBalance); alternate to the above
         this.customerName = customerName;
         this.emailAddress = emailAddress;
         this.phoneNumber = phoneNumber;
@@ -63,18 +69,18 @@ public class BankAccount {
         this.phoneNumber = phoneNumber;
     }
 
-    public void withDraw(int amount){
-        if(this.accountBalance-amount < 0){
-            System.out.println(amount+" cannot be withdrawn.");
-        }else{
+    public void withDraw(int amount) {
+        if (this.accountBalance - amount < 0) {
+            System.out.println(amount + " cannot be withdrawn.");
+        } else {
             this.accountBalance -= amount;
-            System.out.println(amount+" has been withdrawn. Current balance is "+this.accountBalance);
+            System.out.println(amount + " has been withdrawn. Current balance is " + this.accountBalance);
         }
 
     }
 
-    public void deposit (int amount){
+    public void deposit(int amount) {
         this.accountBalance += amount;
-        System.out.println(amount+" has been withdrawn. Current balance is "+this.accountBalance);
+        System.out.println(amount + " has been withdrawn. Current balance is " + this.accountBalance);
     }
 }
