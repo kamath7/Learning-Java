@@ -11,6 +11,7 @@ public class BankAccount {
     private String phoneNumber;
 
     public BankAccount(){
+        this(889,1000, "Lalle","b@b.com","+91828182039"); //special use of this. calling another constructor
         System.out.println("Constructor - 1");
     }
     //Overloading that's all
