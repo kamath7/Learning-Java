@@ -49,4 +49,19 @@ public class BankAccount {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public void withDraw(int amount){
+        if(this.accountBalance-amount < 0){
+            System.out.println(amount+" cannot be withdrawn.");
+        }else{
+            this.accountBalance -= amount;
+            System.out.println(amount+" has been withdrawn. Current balance is "+this.accountBalance);
+        }
+
+    }
+
+    public void deposit (int amount){
+        this.accountBalance += amount;
+        System.out.println(amount+" has been withdrawn. Current balance is "+this.accountBalance);
+    }
 }
