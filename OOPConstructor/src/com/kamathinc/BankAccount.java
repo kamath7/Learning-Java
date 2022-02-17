@@ -10,6 +10,18 @@ public class BankAccount {
     private String emailAddress;
     private String phoneNumber;
 
+    public BankAccount(){
+        System.out.println("Constructor - 1");
+    }
+    //Overloading that's all
+    public BankAccount(int accountNumber, double accountBalance, String customerName, String emailAddress, String phoneNumber){
+        this.accountNumber = accountNumber;
+        this.accountBalance = accountBalance;
+        this.customerName = customerName;
+        this.emailAddress = emailAddress;
+        this.phoneNumber = phoneNumber;
+    }
+
     public int getAccountNumber() {
         return accountNumber;
     }
