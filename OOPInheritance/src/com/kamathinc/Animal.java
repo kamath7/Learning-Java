@@ -38,4 +38,11 @@ public class Animal {
     public int getWeight() {
         return weight;
     }
+
+    public void eat(){
+        System.out.println("Animal.eat() called");
+    }
+    public void move(){
+
+    }
 }
