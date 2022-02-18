@@ -11,5 +11,6 @@ public class Main {
         Dog dog = new Dog("Lemi",15,22,2,4,1,32,"White fur");
         System.out.println(dog.getName()+" has "+dog.getBrain());
         dog.eat();
+        dog.walk();
     }
 }

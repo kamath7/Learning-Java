@@ -28,5 +28,24 @@ public class Dog extends Animal {
         super.eat();
         chew();
     }
+
+    public void walk(){
+        System.out.println("Dog.walk() called");
+        move(20);//calls the method here since it exists. if it doesn't exist here, it goes to the super class
+    }
+    public void run(){
+        System.out.println("Dog.run() called");
+        super.move(25); //calls the move in the super class
+
+    }
+    private void moveLegs(int speed){
+        System.out.println("Dog.moveLegs() called at "+speed);
+    }
+    @Override
+    public void move(int speed) {
+        System.out.println("Dog.move() called");
+        moveLegs(20);
+        super.move(speed);
+    }
 }
 //Every single class created extends the Object class
