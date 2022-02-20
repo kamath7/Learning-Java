@@ -1,0 +1,15 @@
+super()
+- used to access/call parent class members(variables and methods)
+- used with method overriding
+- calling method with the same name from parent class. 
+- this() call - call constructor from another overloaded constructor in the same class. must be used only in a constructor and must be the first statement. used with constructor chaining or when one constructor calls another constructor
+
+
+
+this -
+- used to call current class members (variables and methods). Required when there is aparameter with the same name as instance variable(field)
+- used with constructors and setters. optionally used in getters
+
+
+
+can use both of these anywhere in class except static areas (static block or static method). else will lead to compile-time errors
