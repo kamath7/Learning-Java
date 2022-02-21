@@ -11,11 +11,11 @@ public class Car extends Vehicle {
 
     private int currentGear;
 
-    public Car(int size, int wheels, int doors, int gears, int wheels1, boolean isManual, int currentGear) {
-        super("Car", size);
+    public Car(String name, int size, int wheels, int doors, int gears,  boolean isManual, int currentGear) {
+        super(name, size);
         this.doors = doors;
         this.gears = gears;
-        wheels = wheels1;
+        this.wheels = wheels;
         this.isManual = isManual;
         this.currentGear = 1;
     }
@@ -29,4 +29,6 @@ public class Car extends Vehicle {
         super.move(speed, direction);
         System.out.println("Car.changeVelocity() . Velocity "+speed+" Direction "+direction);
     }
+
+
 }

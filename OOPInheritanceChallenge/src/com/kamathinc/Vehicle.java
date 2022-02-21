@@ -44,6 +44,6 @@ public class Vehicle {
         return currentDirection;
     }
     public void stop(){
-        this.currentVelocity = 0 ; 
+        this.currentVelocity = 0 ;
     }
 }
