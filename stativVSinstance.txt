@@ -1,0 +1,13 @@
+Static  Methods 
+- declared using static modifier
+- can't access instance methods and instance variables directly
+- usually used for ops tha tdont require data from instance of class (from this)
+- this keyword - current instance of class
+- can't use this
+- main - static method and is called by JVM 
+
+Instance Methods
+- belong to instance of class
+- need to instantiate class first by using new keyword
+- can access instance methods and variables directly
+- can access static methods and variables directly
