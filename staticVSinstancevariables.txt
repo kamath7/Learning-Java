@@ -1,0 +1,12 @@
+Static Variables
+
+- declared using static
+- every instance of class shares same static variable
+- not used very often but can be useful
+- Scanner can be declared as static variable
+
+Instance Variables
+- dont use static
+- belong to instance of a class
+- every instance has copy of instance variable
+- instance variable represent state of instance
