@@ -6,15 +6,13 @@ package com.kamathinc;
 public class Vehicle {
     private String name;
     private int size;
-    private int wheels;
 
     private int currentVelocity;
     private int currentDirection;
 
-    public Vehicle(String name, int size, int wheels) {
+    public Vehicle(String name, int size) {
         this.name = name;
         this.size = size;
-        this.wheels = wheels;
         this.currentDirection = 0;
         this.currentVelocity = 0;
     }
@@ -30,6 +28,22 @@ public class Vehicle {
         System.out.println("Vehicle now moving at "+currentVelocity +" in direction "+currentDirection);
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public int getSize() {
+        return size;
+    }
 
+    public int getCurrentVelocity() {
+        return currentVelocity;
+    }
+
+    public int getCurrentDirection() {
+        return currentDirection;
+    }
+    public void stop(){
+        this.currentVelocity = 0 ; 
+    }
 }
