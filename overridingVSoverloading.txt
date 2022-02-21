@@ -1,0 +1,18 @@
+Method Overloading 
+- Two or more methods in a class with same name but different params
+- return type may not be different and that allows use to reuse same method name
+- reduces duplicated code
+- nothing to do with polymorphism but is sometimes called Compile Time Polymorphism
+- can overload static and instance methods
+- happens inside single class but can also be overloaded in a sub class due to inheritance
+- rules - methods must have same name, must have different parameters. may or may not have return types/access modifiers
+
+Method Overriding 
+- defining method in child class that already exists in aprent class with same signature
+- known as runtime polymorphism. decided at runtime by JVM
+- recommended to put @Override immediately above the method.
+- can't override static methods. only instance methods
+- rules - must have same name, same arguements. return type can be subclass of return type in parent class. can't have access modifier. 
+- only inherited methods can be overriden. methods that are final cannot be overriden. constructors, private methods cannot be overriden 
+
+To learn - covariant return types
