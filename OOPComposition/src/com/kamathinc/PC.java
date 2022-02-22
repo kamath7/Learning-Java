@@ -16,15 +16,16 @@ public class PC {
         this.monitor = monitor;
     }
 
-    public Case getPcCase() {
-        return pcCase;
+    public void powerUp(){
+        pcCase.pressPowerBtn();
+        drawRandomly();
+    }
+    public void drawRandomly(){
+        monitor.drawCursorAt(12,34);
+
+    }
+    public void loadPrograms(){
+        motherboard.loadProgram("Java11");
     }
 
-    public Motherboard getMotherboard() {
-        return motherboard;
-    }
-
-    public Monitor getMonitor() {
-        return monitor;
-    }
 }

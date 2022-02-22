@@ -11,10 +11,10 @@ public class Main {
 
         PC myPc = new PC(myCase, motherboard, monitor);
 
-        myPc.getMonitor().drawCursorAt(2,3);
-        myPc.getMotherboard().loadProgram("Java9");
-        
+//        myPc.getMonitor().drawCursorAt(2,3);
+//        myPc.getMotherboard().loadProgram("Java9");
 
+        myPc.powerUp();
 
     }
 }
