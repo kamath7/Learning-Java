@@ -11,7 +11,9 @@ public class Main {
 
         PC myPc = new PC(myCase, motherboard, monitor);
 
-        System.out.println();
+        myPc.getMonitor().drawCursorAt(2,3);
+        myPc.getMotherboard().loadProgram("Java9");
+        
 
 
     }
