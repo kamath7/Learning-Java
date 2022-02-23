@@ -9,9 +9,14 @@ public class Printer {
     private int pagesPrinted;
     private boolean isDuplex;
 
-    public Printer(int tonerLevel, int pagesPrinted, boolean isDuplex) {
-        this.tonerLevel = tonerLevel;
-        this.pagesPrinted = pagesPrinted;
+    public Printer(int tonerLevel, boolean isDuplex) {
+
+        if(tonerLevel > -1 && tonerLevel <= 100){
+            this.tonerLevel = tonerLevel;
+        }else{
+            this.tonerLevel = -1;
+        }
+        this.pagesPrinted = 0;
         this.isDuplex = isDuplex;
     }
 
@@ -22,4 +27,15 @@ public class Printer {
             this.tonerLevel += tonerAddition;
         }
     }
+
+    public void printPages(int pages){
+        if(this.isDuplex){
+            pages = pages/2;
+            this.pagesPrinted += pages;
+        }else{
+            this.pagesPrinted += pages
+        }
+        System.out.println("Pages printed now stands at "+this.pagesPrinted);
+    }
+
 }
