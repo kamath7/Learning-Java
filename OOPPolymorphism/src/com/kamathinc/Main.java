@@ -8,6 +8,10 @@ class Movie {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public String plot() {
         return "Undefined plot";
     }
@@ -63,6 +67,11 @@ class ForgottenMovie extends Movie {
 public class Main {
     public static void main(String[] args) {
         // write your code here
+
+        for (int i = 1; i < 11; i++) {
+            Movie movie = giveMeAMovie();
+            System.out.println("Move no. " + i + " - " + movie.getName() + "\n. The plot of the movie - " + movie.plot() + "\n");
+        }
     }
 
     public static Movie giveMeAMovie() {
