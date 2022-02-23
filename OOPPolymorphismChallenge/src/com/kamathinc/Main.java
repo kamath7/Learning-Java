@@ -43,18 +43,18 @@ class Ambassador extends Car{
 
     @Override
     public void startEngine() {
-        System.out.println("Ambassador started");
+        System.out.println(getClass().getSimpleName()+" started");
     }
 
     @Override
     public void accelerate(int speed) {
 
-        System.out.println("Ambassador accelerating by "+speed);
+        System.out.println(getClass().getSimpleName()+" accelerating by "+speed);
     }
 
     @Override
     public void brake() {
-        System.out.println("Brakes applied for Ambassador");
+        System.out.println("Brakes applied for "+getClass().getSimpleName());
     }
 }
 class Padmini extends Car{
