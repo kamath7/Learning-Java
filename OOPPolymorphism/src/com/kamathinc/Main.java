@@ -70,7 +70,7 @@ public class Main {
 
         for (int i = 1; i < 11; i++) {
             Movie movie = giveMeAMovie();
-            System.out.println("Move no. " + i + " - " + movie.getName() + "\n. The plot of the movie - " + movie.plot() + "\n");
+            System.out.println("Move no. " + i + " - " + movie.getName() + "\nThe plot of the movie - " + movie.plot() + "\n");
         }
     }
 
