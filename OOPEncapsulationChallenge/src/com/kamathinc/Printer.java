@@ -36,7 +36,7 @@ public class Printer {
 
     public void printPages(int pages){
         if(this.isDuplex){
-            pages = pages/2;
+            pages = (pages/2) + (pages %2) ; //for odd no of pages to print in duplex
             this.pagesPrinted += pages;
         }else{
             this.pagesPrinted += pages;
