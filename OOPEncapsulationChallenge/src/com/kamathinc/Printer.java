@@ -21,11 +21,17 @@ public class Printer {
     }
 
     public void fillToner(int tonerAddition){
-        if(this.tonerLevel + tonerAddition > 100){
-            System.out.println("Max you can fill up is 100");
+        if(tonerAddition > 0 && tonerAddition <=100){
+            if(this.tonerLevel + tonerAddition > 100){
+                System.out.println("Max you can fill up is 100!");
+            }else{
+                this.tonerLevel += tonerAddition;
+                System.out.println("Toner level now at "+this.tonerLevel);
+            }
         }else{
-            this.tonerLevel += tonerAddition;
+            System.out.println("Invalid amount specified to add!");
         }
+
     }
 
     public void printPages(int pages){
@@ -33,7 +39,7 @@ public class Printer {
             pages = pages/2;
             this.pagesPrinted += pages;
         }else{
-            this.pagesPrinted += pages
+            this.pagesPrinted += pages;
         }
         System.out.println("Pages printed now stands at "+this.pagesPrinted);
     }
