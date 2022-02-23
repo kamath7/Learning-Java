@@ -104,9 +104,13 @@ class Murcielage extends Car{
 public class Main {
 
 
-
     public static void main(String[] args) {
 	// write your code here
 
+        Car car = new Car("Lalle Car",5);
+        car.startEngine();
+        car.accelerate(10);
+        car.brake();
+        
     }
 }
