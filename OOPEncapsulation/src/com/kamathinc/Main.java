@@ -14,5 +14,10 @@ public class Main {
 
         player.loseHealth(11);
         System.out.println(player.healthRemaining());
+
+        EncapPlayer encapPlayer = new EncapPlayer("Doom Slayer",100, "Sword");
+        System.out.println(encapPlayer.getHealth());
+        encapPlayer.loseHealth(10);
+        System.out.println(encapPlayer.getHealth());
     }
 }
