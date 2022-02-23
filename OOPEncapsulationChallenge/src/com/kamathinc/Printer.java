@@ -20,6 +20,14 @@ public class Printer {
         this.isDuplex = isDuplex;
     }
 
+    public int getPagesPrinted() {
+        return pagesPrinted;
+    }
+
+    public int getTonerLevel() {
+        return tonerLevel;
+    }
+
     public void fillToner(int tonerAddition){
         if(tonerAddition > 0 && tonerAddition <=100){
             if(this.tonerLevel + tonerAddition > 100){
