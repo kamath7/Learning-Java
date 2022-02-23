@@ -13,6 +13,17 @@ class Movie{
     }
 }
 
+class FightClub extends  Movie{
+    public FightClub(){
+        super("Fight Club");
+    }
+
+    public String plot(){
+        return "Two guys fight and make soap";
+    }
+}
+
+
 
 public class Main {
 
