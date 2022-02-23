@@ -111,6 +111,25 @@ public class Main {
         car.startEngine();
         car.accelerate(10);
         car.brake();
-        
+
+        for (int i = 1 ; i <= 10 ; i ++){
+            Car myCar = giveMeARandomCar();
+            System.out.println("Car #"+i+" is "+myCar.getName()+"\n");
+            myCar.startEngine();
+            myCar.accelerate(10);
+            myCar.brake();
+            System.out.println("\n");
+        }
+
+    }
+
+    public static Car giveMeARandomCar(){
+        int randomNum = (int) (Math.random() * 3 ) +1;
+        switch(randomNum){
+            case 1: return new Ambassador();
+            case 2: return new Padmini();
+            case 3: return new Murcielage();
+        }
+        return null;
     }
 }
