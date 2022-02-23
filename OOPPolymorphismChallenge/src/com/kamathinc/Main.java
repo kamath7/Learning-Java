@@ -36,7 +36,27 @@ class Car{
 
 }
 
-class Ambassador extends Car{}
+class Ambassador extends Car{
+    public Ambassador(){
+        super("Ambassador",3);
+    }
+
+    @Override
+    public void startEngine() {
+        System.out.println("Ambassador started");
+    }
+
+    @Override
+    public void accelerate(int speed) {
+
+        System.out.println("Ambassador accelerating by "+speed);
+    }
+
+    @Override
+    public void brake() {
+        System.out.println("Brakes applied for Ambassador");
+    }
+}
 class Padmini extends Car{}
 class Murcielage extends Car{}
 
