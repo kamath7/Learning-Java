@@ -57,8 +57,48 @@ class Ambassador extends Car{
         System.out.println("Brakes applied for Ambassador");
     }
 }
-class Padmini extends Car{}
-class Murcielage extends Car{}
+class Padmini extends Car{
+    public Padmini(){
+        super("Padmini",2);
+    }
+
+    @Override
+    public void startEngine() {
+        System.out.println("Padmini started");
+    }
+
+    @Override
+    public void accelerate(int speed) {
+
+        System.out.println("Padmini accelerating by "+speed);
+    }
+
+    @Override
+    public void brake() {
+        System.out.println("Brakes applied for Padmini");
+    }
+}
+class Murcielage extends Car{
+    public Murcielage(){
+        super("Murcielage",13);
+    }
+
+    @Override
+    public void startEngine() {
+        System.out.println("Murcielage started");
+    }
+
+    @Override
+    public void accelerate(int speed) {
+
+        System.out.println("Murcielage accelerating by "+speed);
+    }
+
+    @Override
+    public void brake() {
+        System.out.println("Brakes applied for Murcielage");
+    }
+}
 
 
 public class Main {
