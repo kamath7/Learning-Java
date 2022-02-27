@@ -47,4 +47,30 @@ public class Hamburger {
         this.additionName4 = name;
         this.additionAmount4 = price;
     }
+
+    public double totalValue(){
+        double burgerPrice = this.price;
+        System.out.println(this.name+" burger using "+ this.breadType+ " with the "+this.meat+" costs "+this.price);
+
+        if (this.additionName1 != null){
+            burgerPrice += this.additionAmount1;
+            System.out.println("The following addition is added "+this.additionName1+". Cost now stands at "+burgerPrice);
+        }
+
+        if (this.additionName2 != null){
+            burgerPrice += this.additionAmount2;
+            System.out.println("The following addition is added "+this.additionName2+". Cost now stands at "+burgerPrice);
+        }
+
+        if (this.additionName3 != null){
+            burgerPrice += this.additionAmount3;
+            System.out.println("The following addition is added "+this.additionName3+". Cost now stands at "+burgerPrice);
+        }
+
+        if (this.additionName4 != null){
+            burgerPrice += this.additionAmount4;
+            System.out.println("The following addition is added "+this.additionName4+". Cost now stands at "+burgerPrice);
+        }
+        return burgerPrice;
+    }
 }

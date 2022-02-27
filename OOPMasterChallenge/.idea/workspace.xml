@@ -36,8 +36,8 @@
       <file leaf-file-name="Hamburger.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/kamathinc/Hamburger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5104712">
-              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.37696335">
+              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -740,12 +740,12 @@
       <option name="number" value="Default" />
       <updated>1645736305206</updated>
       <workItem from="1645736309048" duration="63000" />
-      <workItem from="1645986059764" duration="1060000" />
+      <workItem from="1645986059764" duration="1296000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1123000" />
+    <option name="totallyTimeSpent" value="1359000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -809,8 +809,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kamathinc/Hamburger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5104712">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.37696335">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding />
         </state>
       </provider>
