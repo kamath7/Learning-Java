@@ -18,5 +18,9 @@ public class Main {
         pureBurger.addHealthAddition1("Tofu",9.00);
         System.out.println(pureBurger.totalValue());
 
+
+        SuperBurger superBurger = new SuperBurger();
+        superBurger.totalValue();
+        superBurger.addHamburderAddition1("Chips more",9.00);
     }
 }
