@@ -23,4 +23,24 @@ public class PureBurger extends Hamburger {
         this.healthyAdditionName2 = name;
         this.healthyAdditionAmount2 = price;
     }
+
+    @Override
+    public double totalValue() {
+
+        double burgerPrice = super.totalValue();
+
+        if (this.healthyAdditionName1 !=null){
+            burgerPrice += healthyAdditionAmount1;
+            System.out.println("The following addition is added "+healthyAdditionName1+". Cost now stands at "+burgerPrice);
+
+        }
+
+        if (this.healthyAdditionName2 !=null){
+            burgerPrice += healthyAdditionAmount2;
+            System.out.println("The following addition is added "+this.healthyAdditionName2+". Cost now stands at "+burgerPrice);
+
+        }
+
+        return burgerPrice;
+    }
 }
