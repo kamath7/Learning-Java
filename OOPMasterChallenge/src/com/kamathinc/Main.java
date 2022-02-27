@@ -12,5 +12,11 @@ public class Main {
         hamburger.addHamburderAddition2("kethcup",0.60);
 
         System.out.println(hamburger.totalValue());
+
+        PureBurger pureBurger = new PureBurger("Veg Patty", 8.90);
+        System.out.println(pureBurger.totalValue());
+        pureBurger.addHealthAddition1("Tofu",9.00);
+        System.out.println(pureBurger.totalValue());
+
     }
 }
