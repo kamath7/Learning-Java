@@ -15,5 +15,15 @@ public class Main {
 
         int[] shortCutArray = {10,20,30};
         System.out.println(shortCutArray[2]);
+
+        int[] coolArray = new int[10];
+
+        for(int i = 0 ; i < coolArray.length; i++){
+            coolArray[i] = i * 69;
+        }
+
+        for (int i = 0 ; i<coolArray.length ; i++){
+            System.out.println(coolArray[i]);
+        }
     }
 }
