@@ -27,4 +27,24 @@ public class Hamburger {
         this.price = price;
         this.breadType = breadType;
     }
+
+    public void addHamburderAddition1(String name, double price){
+        this.additionName1 = name;
+        this.additionAmount1 = price;
+    }
+
+    public void addHamburderAddition2(String name, double price){
+        this.additionName2 = name;
+        this.additionAmount2 = price;
+    }
+
+    public void addHamburderAddition3(String name, double price){
+        this.additionName3 = name;
+        this.additionAmount3 = price;
+    }
+
+    public void addHamburderAddition4(String name, double price){
+        this.additionName4 = name;
+        this.additionAmount4 = price;
+    }
 }
