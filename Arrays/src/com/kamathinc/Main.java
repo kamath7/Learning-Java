@@ -12,5 +12,8 @@ public class Main {
         double[] anotheArray = new double[10];
         anotheArray[3] = 60;
         System.out.println(anotheArray[3]);
+
+        int[] shortCutArray = {10,20,30};
+        System.out.println(shortCutArray[2]);
     }
 }
