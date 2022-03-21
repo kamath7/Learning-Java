@@ -1,5 +1,6 @@
 package com.kamsinc;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -10,6 +11,7 @@ public class Main {
         System.out.println("Enter the count of integers");
         int count = scanner.nextInt();
         int[] myArr = readInteger(count);
+        System.out.println("Min element in the array is "+returnMin(myArr));
     }
 
     private static int[] readInteger(int count){
@@ -22,7 +24,13 @@ public class Main {
         return myArr;
     }
     private static int returnMin(int[] arr){
+        sortNumbers(arr);
+        return arr[0];
+    }
 
-        return 1;
+    private static int[] sortNumbers(int[] arr){
+        int[] mySortedArr = arr;
+        Arrays.sort(mySortedArr);
+        return mySortedArr;
     }
 }
