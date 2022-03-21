@@ -31,5 +31,20 @@ public class Main {
 
         System.out.println("Array1 -> "+ Arrays.toString(someIntArr));
         System.out.println("Array2 -> "+ Arrays.toString(someOtherIntArr));
+
+        changeMyArr(someIntArr);//3 references - arr1, arr2, and the parameter
+
+        System.out.println("Array1 -> "+ Arrays.toString(someIntArr));
+        System.out.println("Array2 -> "+ Arrays.toString(someOtherIntArr));
+
+        someOtherIntArr = new int[]{4,5,6,7,8};
+        changeMyArr(someIntArr);
+        System.out.println("Array1 -> "+ Arrays.toString(someIntArr));
+        System.out.println("Array2 -> "+ Arrays.toString(someOtherIntArr));
+    }
+
+    private static void changeMyArr(int[] arr){
+        arr[0] = 2;
+
     }
 }
