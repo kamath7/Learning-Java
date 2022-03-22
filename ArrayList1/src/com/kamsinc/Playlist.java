@@ -9,7 +9,6 @@ public class Playlist {
         myPlaylist.add(song);
     }
     public void deleteSong(int index){
-        System.out.println("Removing song - "+myPlaylist.get(index));
         myPlaylist.remove(index);
     }
 
