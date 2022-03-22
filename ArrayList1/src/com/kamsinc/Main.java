@@ -31,5 +31,7 @@ public class Main {
         playlist.deleteSong(1);
 
         System.out.println(playlist.getMyPlaylist());
+
+        System.out.println(playlist.findSong("Poker Face"));
     }
 }

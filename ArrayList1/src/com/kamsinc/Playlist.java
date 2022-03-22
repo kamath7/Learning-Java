@@ -13,6 +13,13 @@ public class Playlist {
         myPlaylist.remove(index);
     }
 
+    public String findSong(String song){
+        boolean songExists = myPlaylist.contains(song);
+        if (songExists){
+            return "Song present in the playlist!";
+        }
+        return "Song not present!";
+    }
     public ArrayList<String> getMyPlaylist() {
         return myPlaylist;
     }
