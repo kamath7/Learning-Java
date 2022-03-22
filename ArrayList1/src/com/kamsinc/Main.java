@@ -1,6 +1,4 @@
 package com.kamsinc;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -11,11 +9,10 @@ public class Main {
         //Also arraylist is a class which implements the List interface
 //        ArrayList<String> myArrayList = new ArrayList<String>(); //<String> - type
         Playlist playlist = new Playlist();
-        int choice = 0;
         boolean userActive = true;
         while(userActive){
             System.out.println("Enter your choice. 1 for add, 2 for getting your playlist, 3 for deleting a song, 4 for finding a song. -1 to quit");
-            choice = scanner.nextInt();
+            int choice = scanner.nextInt();
             scanner.nextLine();
 
             switch(choice){
@@ -29,11 +26,14 @@ public class Main {
                     System.out.println(playlist.getMyPlaylist());
                     break;
                 case 3:
-                    System.out.println("Enter song index to remove");
-                    int index = scanner.nextInt();
-                    System.out.println("Deleting song "+playlist.getMyPlaylist().get(index));
-                    playlist.deleteSong(index);
-                    System.out.println("Playlist after deletion "+playlist.getMyPlaylist());
+                    System.out.println("Enter song name to be removed");
+                    String songName2 = scanner.nextLine();
+                    if (!playlist.deleteSong(songName2)){
+                        System.out.println("Deletion failed. Song doesn't exist");
+                    }else{
+                        System.out.println(songName2+" deleted from playlist!");
+                        System.out.println("Playlist after deletion "+playlist.getMyPlaylist());
+                    }
                     break;
                 case 4:
                     System.out.println("Enter songname to search");

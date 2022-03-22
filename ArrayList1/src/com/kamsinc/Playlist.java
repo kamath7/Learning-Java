@@ -3,13 +3,19 @@ package com.kamsinc;
 import java.util.ArrayList;
 
 public class Playlist {
-    private ArrayList<String> myPlaylist = new ArrayList<String>();
+    final private ArrayList<String> myPlaylist = new ArrayList<>();
 
     public void addSong(String song){
         myPlaylist.add(song);
     }
-    public void deleteSong(int index){
-        myPlaylist.remove(index);
+    public boolean deleteSong(String song){
+        int indexToDelete = myPlaylist.indexOf(song);
+        if(indexToDelete == -1){
+            return false;
+        }else{
+            myPlaylist.remove(indexToDelete);
+            return true;
+        }
     }
 
     public String findSong(String song){
