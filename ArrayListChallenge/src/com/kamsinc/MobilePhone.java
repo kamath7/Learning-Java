@@ -3,8 +3,8 @@ package com.kamsinc;
 import java.util.ArrayList;
 
 public class MobilePhone {
-    private String myNumber;
-    private ArrayList<Contact> myContacts = new ArrayList<>();
+    final private String myNumber;
+    final private ArrayList<Contact> myContacts = new ArrayList<>();
 
     public MobilePhone(String myNumber) {
         this.myNumber = myNumber;
@@ -60,7 +60,10 @@ public class MobilePhone {
         return true;
     }
 
-    public ArrayList<Contact> getMyContacts() {
-        return myContacts.toArray();
+    public void getMyContacts() {
+        System.out.println("Contact List");
+        for (int i = 0 ; i < this.myContacts.size(); i++){
+            System.out.println(this.myContacts.get(i).getName() + " "+this.myContacts.get(i).getPhoneNumber());
+        }
     }
 }

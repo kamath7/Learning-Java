@@ -17,11 +17,7 @@ public class Main {
             scanner.nextLine();
             switch(choice){
                 case 1:
-                        if(mobilePhone.getMyContacts() != null){
-                            System.out.println(mobilePhone.getMyContacts());
-                        }else{
-                            System.out.println(" No contacts yet!");
-                        }
+                        mobilePhone.getMyContacts();
                         break;
                 case 2:
                         System.out.println("Enter the contact name you want to add");
@@ -38,8 +34,9 @@ public class Main {
                         break;
 
                 case 3:
-                    System.out.println("Enter existing contact name and number to modify ");
+                    System.out.println("Enter existing contact name tp modify ");
                     String oldContactName = scanner.nextLine();
+                    System.out.println("Enter existing contact number tp modify ");
                     String oldContactNumber = scanner.nextLine();
                     System.out.println("Enter new contact name and number");
                     String newContactName = scanner.nextLine();
