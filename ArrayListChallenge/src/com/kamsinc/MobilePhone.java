@@ -20,9 +20,12 @@ public class MobilePhone {
     }
 
     public boolean updateContact(Contact oldContact, Contact newContact){
-        int ifFound= findContact(oldContact);
+        int ifFound= findContact(oldContact.getName());
         if (ifFound < 0){
             System.out.println("Contact doesn't exist to update!");
+            return false;
+        }else if (findContact(newContact.getName()) != -1){
+            System.out.println("Contact with name already exists!");
             return false;
         }
         this.myContacts.set(ifFound, newContact);
