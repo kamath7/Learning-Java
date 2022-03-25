@@ -34,5 +34,16 @@ public class Main {
         }
         System.out.println(myIntList);
 
+        Integer myOtherIntVal = 69; //At compile time -> Integer myOtherIntVal = Integer.valueOf(69)
+
+        ArrayList<Double> myDoubleArr = new ArrayList<>();
+        for (double db = 0.0 ; db <=10.0; db++){
+            myDoubleArr.add(Double.valueOf(db * 2));
+        }
+
+        for (int i =0 ; i < myDoubleArr.size() ; i ++){
+            double val = myDoubleArr.get(i).doubleValue();
+            System.out.println(i+" -> "+val);
+        }
     }
 }
