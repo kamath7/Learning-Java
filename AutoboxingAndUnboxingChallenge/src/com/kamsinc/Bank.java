@@ -59,8 +59,11 @@ public class Bank {
                     for(int j = 0 ; j < custTransactions.size() ; j++){
                         System.out.println(j+" -"+custTransactions.get(j).doubleValue());
                     }
+                }else{
+                    return false;
                 }
             }
+            return true;
         }
         return false;
     }
