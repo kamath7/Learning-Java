@@ -12,6 +12,10 @@ public class Customer {
         addTransaction(initialAmount);
     }
 
+    public String getName() {
+        return name;
+    }
+
     public  void addTransaction(double amt){
         this.transactions.add(amt);
     }
