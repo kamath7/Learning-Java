@@ -44,4 +44,8 @@ public class Branch {
         }
         return null;
     }
+
+    public ArrayList<Customer> getCustomers() {
+        return customers;
+    }
 }
