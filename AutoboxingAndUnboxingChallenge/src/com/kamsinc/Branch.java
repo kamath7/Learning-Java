@@ -28,7 +28,7 @@ public class Branch {
 
     public boolean addCustTransaction(String custName, double amt){
         Customer oldCust = findCustomer(custName);
-        if(oldCust){
+        if(oldCust!=null){
             oldCust.addTransaction(amt);
             return  true;
         }
