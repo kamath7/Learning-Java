@@ -1,5 +1,6 @@
 package com.kamsinc;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class MyLL {
@@ -13,9 +14,16 @@ public class MyLL {
         somePlaces.add("Rio De Janeiro");
 
         printMyList(somePlaces);
+
+        somePlaces.add(1,"Ullal");
+
+        printMyList(somePlaces);
     }
 
     private static void printMyList(LinkedList<String> places){
-
+        Iterator<String> i = places.iterator();
+        while(i.hasNext()){
+            System.out.println("Visiting - "+i.next());
+        }
     }
 }
