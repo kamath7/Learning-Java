@@ -2,6 +2,7 @@ package com.kamsinc;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class MyLL {
 
@@ -25,5 +26,27 @@ public class MyLL {
         while(i.hasNext()){
             System.out.println("Visiting - "+i.next());
         }
+    }
+
+    private static boolean checkOrder(String city, LinkedList<String> places){
+            ListIterator<String> i = places.listIterator();
+            while(i.hasNext()){
+                int comparison = i.next().compareTo(city);
+                if(comparison == 0 ){
+                    //means they are equal
+                    System.out.println(city+" cannot be added since it's already present!");
+                    return false;
+                }else if(comparison > 0){
+                    //Maintaining alphabetical order
+                    i.previous();
+                    i.add(city);
+                    return true;
+                }else if(comparison < 0){
+                    //need not do anything since next already done
+                }
+
+            }
+            i.add(city);
+            return true;
     }
 }
