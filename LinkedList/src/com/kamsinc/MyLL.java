@@ -39,6 +39,7 @@ public class MyLL {
     private  static void visitPlace(LinkedList<String> cities){
         Scanner scanner = new Scanner(System.in);
         boolean userToQuit = false;
+        boolean checkForLoops = true;
 
         ListIterator<String> stringListIterator = cities.listIterator();
         if(cities.isEmpty()){
@@ -56,13 +57,28 @@ public class MyLL {
                     userToQuit = true;
                     break;
                 case 1:
+                    if(!checkForLoops){
+                        if(stringListIterator.hasNext()){
+                            stringListIterator.next();
+                        }
+                        checkForLoops = true;//going forward
+                    }
                     if(stringListIterator.hasNext()){
                         System.out.println("Visiting "+stringListIterator.next());
                     }else {
                         System.out.println("Reached the end of itinerary!");
+
+                        checkForLoops= false;
                     }
                     break;
-                case 2: if(stringListIterator.hasPrevious()){
+                case 2:
+                    if(checkForLoops){
+                        if(stringListIterator.hasPrevious()){
+                            stringListIterator.previous();
+                        }
+                        checkForLoops = false; //going backward
+                    }
+                    if(stringListIterator.hasPrevious()){
                     System.out.println("Now visiting "+stringListIterator.previous());
                 }else{
                     System.out.println("Start of the tour!");
