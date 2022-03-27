@@ -3,6 +3,7 @@ package com.kamsinc;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
+import java.util.Scanner;
 
 public class MyLL {
 
@@ -20,13 +21,57 @@ public class MyLL {
 
         printMyList(somePlaces);
 
+        checkOrder("Dehradun",somePlaces);
+        checkOrder("Gokarna",somePlaces);
 
+        printMyList(somePlaces);
+
+        visitPlace(somePlaces);
     }
 
     private static void printMyList(LinkedList<String> places){
         Iterator<String> i = places.iterator();
         while(i.hasNext()){
             System.out.println("Visiting - "+i.next());
+        }
+    }
+
+    private  static void visitPlace(LinkedList<String> cities){
+        Scanner scanner = new Scanner(System.in);
+        boolean userToQuit = false;
+
+        ListIterator<String> stringListIterator = cities.listIterator();
+        if(cities.isEmpty()){
+            System.out.println("No cities in yet!");
+            return;
+        }else {
+            System.out.println("Visiting - "+stringListIterator.next());
+        }
+        while(!userToQuit){
+            int action = scanner.nextInt();
+            scanner.nextLine();
+            switch(action){
+                case 0:
+                    System.out.println("Holiday done! :( ");
+                    userToQuit = true;
+                    break;
+                case 1:
+                    if(stringListIterator.hasNext()){
+                        System.out.println("Visiting "+stringListIterator.next());
+                    }else {
+                        System.out.println("Reached the end of itinerary!");
+                    }
+                    break;
+                case 2: if(stringListIterator.hasPrevious()){
+                    System.out.println("Now visiting "+stringListIterator.previous());
+                }else{
+                    System.out.println("Start of the tour!");
+                }
+                case 3:
+                    System.out.println("You can add/check itinerary");
+                    break;
+
+            }
         }
     }
 
