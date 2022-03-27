@@ -9,16 +9,18 @@ public class MyLL {
     public static void main(String[] args) {
         LinkedList<String> somePlaces = new LinkedList<>();
 
-        somePlaces.add("Hampi");
-        somePlaces.add("Mangalore");
-        somePlaces.add("Gokarna");
-        somePlaces.add("Rio De Janeiro");
+//        somePlaces.add("Hampi");
+//        somePlaces.add("Mangalore");
+//        somePlaces.add("Gokarna");
+//        somePlaces.add("Rio De Janeiro");
+        checkOrder("Hampi",somePlaces);
+        checkOrder("Mangalore",somePlaces);
+        checkOrder("Gokarna",somePlaces);
+        checkOrder("Rio De Janeiro",somePlaces);
 
         printMyList(somePlaces);
 
-        somePlaces.add(1,"Ullal");
 
-        printMyList(somePlaces);
     }
 
     private static void printMyList(LinkedList<String> places){
