@@ -101,6 +101,15 @@ public class Main {
                 case 4:
                     printPlayList(playList);
                     break;
+                case 5: if(playList.size() == 0){
+                    listIterator.remove();
+                    if(listIterator.hasNext()){
+                        System.out.println("Now playing "+listIterator.next());
+                    }else if(listIterator.hasPrevious()){
+                        System.out.println("Now playing "+listIterator.previous());
+                    }
+                }
+                    break;
                 default:
                     System.out.println("Check entered number");
                     break;
