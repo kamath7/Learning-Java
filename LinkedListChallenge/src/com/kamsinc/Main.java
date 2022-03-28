@@ -1,9 +1,6 @@
 package com.kamsinc;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.ListIterator;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -85,15 +82,37 @@ public class Main {
                     }
                     break;
                 case 3:
+                    if(isForward){
+                        if(listIterator.hasPrevious()){
+                            System.out.println("Replaying "+listIterator.previous().toString());
+                            isForward = false;
+                        }else{
+                            System.out.println("Start of list");
+                        }
+                    }else{
+                        if(listIterator.hasNext()){
+                            System.out.println("Replaying "+listIterator.next().toString());
+                            isForward = true;
+                        }else {
+                            System.out.println("Reached end of list");
+                        }
+                    }
                     break;
                 case 4:
-//                    printPlayList(playList);
+                    printPlayList(playList);
                     break;
                 default:
                     System.out.println("Check entered number");
                     break;
 
             }
+        }
+    }
+
+    private static void printPlayList(LinkedList<Song> playList){
+        Iterator<Song> iterator = playList.iterator();
+        while(iterator.hasNext()){
+            System.out.println(iterator.next());
         }
     }
 }
