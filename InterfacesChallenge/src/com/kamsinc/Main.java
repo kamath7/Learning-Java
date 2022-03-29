@@ -17,9 +17,16 @@ public class Main {
         somePlayer.setWeaponName("Desert Eagle");
 
         saveObject(somePlayer);
-        loadObject(somePlayer);
+//        loadObject(somePlayer);
 
         System.out.println(somePlayer);
+
+        ISaveable chimera = new Demon("Chimera",11,22);
+        System.out.println(chimera);
+        //to access getters
+        System.out.println(((Demon)chimera).getStrength());
+        saveObject(chimera);
+
     }
     public static ArrayList<String> readValues() {
         ArrayList<String> values = new ArrayList<>();
