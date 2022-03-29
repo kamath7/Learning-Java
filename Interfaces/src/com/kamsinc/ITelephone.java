@@ -2,10 +2,10 @@ package com.kamsinc;
 
 public interface ITelephone {
 
-    public void powerOn();
-    public void dial(int phoneNumber);
-    public void answer();
-    public boolean callPhone(int phoneNumber);
-    public boolean phoneRinging();
+     void powerOn();
+     void dial(int phoneNumber);
+     void answer();
+     boolean callPhone(int phoneNumber);
+     boolean phoneRinging();
 
 }
