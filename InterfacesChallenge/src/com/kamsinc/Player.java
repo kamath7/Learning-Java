@@ -1,6 +1,7 @@
 package com.kamsinc;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Player implements ISaveable{
     private String name;
@@ -53,12 +54,22 @@ public class Player implements ISaveable{
     }
 
     @Override
-    public ArrayList<String> write() {
-        return null;
+    public List<String> write() {
+        List<String> values = new ArrayList<>();
+        values.add(0, this.name);
+        values.add(1,""+this.hitPts);
+        values.add(2,""+this.strength);
+        values.add(3,this.weaponName);
+        return values;
     }
 
     @Override
-    public void read(ArrayList<String> values) {
-
+    public void read(List<String> values) {
+        if(values !=null && values.size() > 0){
+            this.name = values.get(0);
+            this.hitPts = Integer.parseInt(values.get(1));
+            this.strength = Integer.parseInt(values.get(2));
+            this.weaponName = values.get(3);
+        }
     }
 }
