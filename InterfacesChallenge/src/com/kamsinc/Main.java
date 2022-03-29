@@ -7,6 +7,19 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
+
+        Player somePlayer = new Player("Kams",122,100);
+        System.out.println(somePlayer.toString());
+        saveObject(somePlayer);
+
+        somePlayer.setHitPts(10);
+        System.out.println(somePlayer);
+        somePlayer.setWeaponName("Desert Eagle");
+
+        saveObject(somePlayer);
+        loadObject(somePlayer);
+
+        System.out.println(somePlayer);
     }
     public static ArrayList<String> readValues() {
         ArrayList<String> values = new ArrayList<>();
@@ -37,4 +50,14 @@ public class Main {
         return values;
     }
 
+    public static void saveObject(ISaveable obj){
+        for (int i = 0 ; i < obj.write().size(); i++){
+            System.out.println("Saving "+obj.write().get(i));
+        }
+    }
+
+    public static void loadObject(ISaveable obj){
+        ArrayList<String> values  = readValues();
+        obj.read(values);
+    }
 }
