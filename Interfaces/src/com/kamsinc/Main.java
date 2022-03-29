@@ -11,5 +11,10 @@ public class Main {
         somePhone.callPhone(1289099);
         somePhone.answer();
 
+        somePhone = new MobilePhone(12123455);
+        somePhone.callPhone(222331);
+        somePhone.phoneRinging();
+
+
     }
 }
