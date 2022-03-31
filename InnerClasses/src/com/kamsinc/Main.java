@@ -1,9 +1,13 @@
 package com.kamsinc;
 
+import java.util.Scanner;
+
 public class Main {
 
+    final private static Scanner scanner = new Scanner(System.in);
+    private  static Button someBtn = new Button("SomeBtn");
     public static void main(String[] args) {
-	// write your code here
+        // write your code here
 
         Gearbox ferrari = new Gearbox(7);
 
@@ -21,5 +25,39 @@ public class Main {
 //        System.out.println(first.driveSpeed(1000));
 //        System.out.println(second.driveSpeed(900));
 //        System.out.println(third.driveSpeed(280));
+//Anonymous class below
+//        class ClickListener implements  Button.OnClickListener{
+//            public ClickListener(){
+//                System.out.println("Button attached");
+//            }
+//
+//            @Override
+//            public void onClick(String title) {
+//                System.out.println(title+" clicked!");
+//            }
+//        }
+//
+//        someBtn.setOnClickListener(new ClickListener());
+//    }
+        someBtn.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(String title) {
+                System.out.println(title+" was clicked!");
+            }
+        });
+//    private static void listen(){
+//        boolean q = false;
+//        while(!q){
+//            int choice = scanner.nextInt();
+//            scanner.nextLine();
+//
+//            switch(choice){
+//                case 0:
+//                    q = true;
+//                    break;
+//                case 1: someBtn.onClick();
+//            }
+//        }
+//    }
     }
 }

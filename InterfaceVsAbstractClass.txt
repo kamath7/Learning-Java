@@ -1,0 +1,17 @@
+Abstract Class
+- Similar to interfaces. Can't instantiate them and may contain mix of method with or without implementation
+- can define fields that are static and final. Can also define public protected private methods
+- can extend only one parent class but can implement multiple interfaces
+- abstract class' subclass usually provides implementation for all abstract methods in parent class
+- however if subclass doesn't do an implementation, then it must be abstract too
+Use cases - share among several closely related class, extend abstract class to have many common methods or required access modifiers other than public, requirement of base class having certain method to be implemented
+
+Interface 
+- declaration of methods of a class. not implementation
+- define what kind of operation object can perfrom. Operations defined by classes that implement interface
+- interfaces form contract between class and outside world and contract enforced at build time by compiler
+- can't instaniate them. may contain mix of methods declared with or without implementation. all methods in interface are public and abstract
+- interface can extend another interface
+
+
+Use cases - seperate different behavior, collections example, JDBC api
