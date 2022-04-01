@@ -27,20 +27,16 @@ public class CustomLinkedList implements  NodeList {
                     currentItem = currentItem.next();
                 }else{
                     //insert at end
-                    currentItem.setNext(item);
-                    item.setPrevious(currentItem);
+                    currentItem.setNext(item).setPrevious(currentItem);
                     return  true;
                 }
             }else if(comparison > 0 ){
                 //move left . new item smaller
                 if(currentItem.previous() != null){
-                    currentItem.previous().setNext(item);
-                    item.setPrevious(currentItem.previous());
-                    item.setNext(currentItem);
-                    currentItem.setPrevious(item);
+                    currentItem.previous().setNext(item).setPrevious(currentItem.previous());
+                    item.setNext(currentItem).setPrevious(item);
                 }else{
-                    item.setNext(this.root);
-                    this.root.setPrevious(item);
+                    item.setNext(this.root).setPrevious(item);
                     this.root = item;
                 }
                 return true;
@@ -61,5 +57,13 @@ public class CustomLinkedList implements  NodeList {
     @Override
     public void traverse(ListItem root) {
 
+        if(root == null){
+            System.out.println("Root empty");
+        }else{
+            while(root!= null){
+                System.out.println(root.getValue());
+                root = root.next();
+            }
+        }
     }
 }
