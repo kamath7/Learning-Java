@@ -7,6 +7,11 @@ public class Node extends ListItem{
     }
 
     @Override
+    ListItem next() {
+        return this.rightLink;
+    }
+
+    @Override
     ListItem setNext(ListItem item) {
          this.rightLink = item;
          return this.rightLink;
