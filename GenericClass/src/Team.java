@@ -47,4 +47,8 @@ public class Team {
             opponent.matchResult(null, oppScore, ourScore);
         }
     }
+
+    public int ranking(){
+        return (won * 2) + tied;
+    }
 }
