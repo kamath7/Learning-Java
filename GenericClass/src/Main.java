@@ -5,10 +5,10 @@ public class Main {
     CricketPlayer dhuni = new CricketPlayer("dhuni");
 
 
-    Team lalleTeam = new Team("Awesome Team");
+    Team<FootballPlayer> lalleTeam = new Team<>("Awesome Team");
 
     lalleTeam.addPlayer(max);
-    lalleTeam.addPlayer(dhuni);
+//    lalleTeam.addPlayer(dhuni); -> Invalid now
 
         System.out.println(lalleTeam.playerCount());
     }
