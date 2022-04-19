@@ -19,11 +19,11 @@ public class Team<T extends Player> {
 
     public boolean addPlayer(T player){
         if(members.contains(player)){
-            System.out.println(((Player)player).getName() + "already on team");
+            System.out.println(player.getName() + "already on team");
             return false;
         }else{
             members.add(player);
-            System.out.println(((Player)player).getName()+" added");
+            System.out.println(player.getName()+" added");
             return  true;
         }
     }
@@ -32,7 +32,10 @@ public class Team<T extends Player> {
         return this.members.size();
     }
 
-    public void matchResult(Team opponent, int ourScore, int oppScore){
+    public void matchResult(Team<T> opponent, int ourScore, int oppScore){
+
+        String message = "";
+
         if(ourScore > oppScore){
             won++;
         }else if(ourScore == oppScore){
@@ -44,6 +47,7 @@ public class Team<T extends Player> {
         played++;
 
         if(opponent!= null){
+            System.out.println(this.getName()+ message+ opponent.getName());
             opponent.matchResult(null, oppScore, ourScore);
         }
     }
