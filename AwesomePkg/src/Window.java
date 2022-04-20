@@ -14,4 +14,20 @@ public class Window extends Frame {
             }
         });
     }
+
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+
+        Font SansSerifL = new Font("SansSerif", Font.BOLD, 18);
+        Font SansSerifS = new Font("SansSerif", Font.BOLD, 12);
+
+        g.setFont(SansSerifL);
+        g.drawString("Uncharted 4",60,60);
+
+        g.setFont(SansSerifS);
+        g.drawString("By Naugthy Dogs", 60, 100);
+
+
+    }
 }
