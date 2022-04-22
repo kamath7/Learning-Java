@@ -24,7 +24,7 @@ public class ScopeCheck {
     public class InnerClass{
 
         //this.privateVar will fail but ScopeCheck.this.privateVar will pass
-        public int privateVar3 = 3;
+        private int privateVar3 = 3;
 
         public InnerClass() {
             System.out.println("From inner class "+ScopeCheck.this.privateVar1);

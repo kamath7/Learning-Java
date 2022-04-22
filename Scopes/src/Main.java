@@ -11,6 +11,8 @@ public class Main {
 
         innerClass.timesTwo();
         check.useInner();
+//        innerClass.privateVar3; - Not accessible
+
     }
 
 }
