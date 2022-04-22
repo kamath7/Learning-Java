@@ -1,13 +1,13 @@
 public class ScopeCheck {
     public int publicVar = 0;
-    private int privateVar = 1;
+    private int privateVar1 = 1;
 
     public ScopeCheck() {
-        System.out.println(" Public Var "+publicVar+" privaeVar = "+privateVar);
+        System.out.println(" Public Var "+publicVar+" privaeVar = "+ privateVar1);
     }
 
-    public int getPrivateVar() {
-        return privateVar;
+    public int getPrivateVar1() {
+        return privateVar1;
     }
 
     public  void timesTwo(){
@@ -20,16 +20,16 @@ public class ScopeCheck {
     public class InnerClass{
 
         //this.privateVar will fail but ScopeCheck.this.privateVar will pass
-        public int privateVar = 3;
+        public int privateVar3 = 3;
 
         public InnerClass() {
-            System.out.println("From inner class "+ScopeCheck.this.privateVar);
+            System.out.println("From inner class "+ScopeCheck.this.privateVar1);
         }
 
         public  void timesTwo(){
-            int privateVar = 2;
+            int privateVar3 = 2;
             for(int i = 0 ; i< 10; i++){
-                System.out.println(i * privateVar);
+                System.out.println(i * privateVar3);
             }
         }
     }
