@@ -10,6 +10,7 @@ public class Main {
         ScopeCheck.InnerClass innerClass = check.new InnerClass();
 
         innerClass.timesTwo();
+        check.useInner();
     }
 
 }

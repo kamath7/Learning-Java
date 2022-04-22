@@ -17,6 +17,10 @@ public class ScopeCheck {
         }
     }
 
+    public void useInner(){
+        InnerClass innerClass = new InnerClass();
+        System.out.println("Using var3 "+innerClass.privateVar3);
+    }
     public class InnerClass{
 
         //this.privateVar will fail but ScopeCheck.this.privateVar will pass
