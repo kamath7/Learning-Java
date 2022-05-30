@@ -1,5 +1,5 @@
 public class StaticTst {
-    private int numInstances = 0;
+    private static int numInstances = 0;
     private String name;
 
     public StaticTst(String name) {
