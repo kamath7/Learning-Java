@@ -6,8 +6,8 @@ public class ExtendedEliteClass extends EliteClass{
         this.decryptedPass = password;
     }
 
-    @Override
-    public void storePass() {
-        System.out.println("saving pass as "+this.decryptedPass);
-    }
+//    @Override
+//    public void storePass() {
+//        System.out.println("saving pass as "+this.decryptedPass);
+//    } - to avoid overriding
 }

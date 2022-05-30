@@ -11,7 +11,7 @@ public class EliteClass {
         return password ^ key;
     }
 
-    public void storePass(){
+    public final void storePass(){
         System.out.println("Stored password as "+this.lallepass);
     }
 
