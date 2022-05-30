@@ -4,7 +4,7 @@ public class Account {
 
     public String accountName;
     public double balance = 0;
-    public ArrayList<Integer> transaction;
+    private ArrayList<Integer> transaction;
 
     public Account(String accountName) {
         this.accountName = accountName;

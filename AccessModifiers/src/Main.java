@@ -9,6 +9,7 @@ public class Main {
         account.withdrawal(1000);
         account.calculateBalance();
 
+//        account.transaction.add(4000); //shouldn't be allowed
         System.out.println("Balance -> "+account.getBalance());
     }
 }
