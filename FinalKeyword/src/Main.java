@@ -18,6 +18,9 @@ public class Main {
         System.out.println(eliteClass.letMeIn(correctPass));
         System.out.println(eliteClass.letMeIn(wrongPass));
 
+        SIBTest sibTest = new SIBTest();
+        sibTest.someMethod();
+        System.out.println("Owner "+sibTest.lale1);
 
     }
 }
