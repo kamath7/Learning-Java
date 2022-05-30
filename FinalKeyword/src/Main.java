@@ -10,7 +10,7 @@ public class Main {
 //      Math m = new Math(); - won't happen. constructor is marked private since you shouldn't be creating instances of this class
 
 
-        EliteClass eliteClass  = new EliteClass(123450);
+        EliteClass eliteClass  = new ExtendedEliteClass(123450);
         eliteClass.storePass();
         int correctPass = 123450;
         int wrongPass = 1239;
