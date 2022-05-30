@@ -6,9 +6,9 @@ public class Account {
     public double balance = 0;
     public ArrayList<Integer> transaction;
 
-    public Account(String accountName, ArrayList<Integer> transaction) {
+    public Account(String accountName) {
         this.accountName = accountName;
-        this.transaction = transaction;
+        this.transaction = new ArrayList<>();
     }
 
     public double getBalance() {
@@ -34,5 +34,13 @@ public class Account {
         }else{
             System.out.println("cannot withdraw");
         }
+    }
+
+    public void calculateBalance(){
+        this.balance = 0;
+        for (int i : this.transaction){
+            this.balance += i;
+        }
+        System.out.println("Balance currently at "+this.balance);
     }
 }
