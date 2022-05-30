@@ -7,7 +7,7 @@ public class StaticTst {
         numInstances++;
     }
 
-    public int getNumInstances() {
+    public static  int getNumInstances() {
         return numInstances;
     }
 
