@@ -12,9 +12,9 @@ public class Main {
         printList(seatCpy);
 
         seatCpy.get(1).reserve();
-        if(theatre.reserveSeat("A02")){
+        if (theatre.reserveSeat("A02")) {
             System.out.println("Pay for A02");
-        }else{
+        } else {
             System.out.println("Already reserved!");
         }
 //both seatCpy and theatre share the same object
@@ -24,13 +24,20 @@ public class Main {
         printList(seatCpy);
         System.out.println("printing theatre.Seat");
         printList(theatre.seats);
+
+        Theatre.Seat minSeat = Collections.min(seatCpy);
+        Theatre.Seat maxSeat = Collections.max(seatCpy);
+        System.out.println("Min seat no = "+minSeat.getSeatNo());
+        System.out.println("Max seat no = "+maxSeat.getSeatNo());
+
     }
 
-    public static void printList(List <Theatre.Seat> list){
-        for (Theatre.Seat seat: list){
-            System.out.println(" "+seat.getSeatNo());
+    public static void printList(List<Theatre.Seat> list) {
+        for (Theatre.Seat seat : list) {
+            System.out.println(" " + seat.getSeatNo());
         }
         System.out.println(" ");
-        System.out.println("---------------");;
+        System.out.println("---------------");
+        ;
     }
 }
