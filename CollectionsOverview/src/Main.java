@@ -30,6 +30,14 @@ public class Main {
         System.out.println("Min seat no = "+minSeat.getSeatNo());
         System.out.println("Max seat no = "+maxSeat.getSeatNo());
 
+        sortList(seatCpy);
+        System.out.println("Printing sorted copy");
+        printList(seatCpy);
+
+        List<Theatre.Seat> newList = new ArrayList<>(theatre.seats.size());
+        Collections.copy(newList, theatre.seats); //deep copy
+
+
     }
 
     public static void printList(List<Theatre.Seat> list) {
