@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -17,6 +18,12 @@ public class Main {
             System.out.println("Already reserved!");
         }
 //both seatCpy and theatre share the same object
+
+        Collections.reverse(seatCpy);
+        System.out.println("Printing seatCpy");
+        printList(seatCpy);
+        System.out.println("printing theatre.Seat");
+        printList(theatre.seats);
     }
 
     public static void printList(List <Theatre.Seat> list){
