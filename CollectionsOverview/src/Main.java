@@ -1,22 +1,22 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
         //Sets map, queues - Part of collections
 
         Theatre theatre = new Theatre("Jyothi Talkies", 20, 5); //it doesn't exist anymore ☹
-//        theatre.getSeats();
+        List<Theatre.Seat> seatCpy = new ArrayList<>(theatre.seats);
+        printList(seatCpy);
 
-        if(theatre.reserveSeat("A02")){
-            System.out.println("PAY ME CASH!");
-        }else{
-            System.out.println("Seat reserved");
+    }
+
+    public static void printList(List <Theatre.Seat> list){
+        for (Theatre.Seat seat: list){
+            System.out.println(" "+seat.getSeatNo());
         }
-
-        //below won't work
-//        if(theatre.reserveSeat("A02")){
-//            System.out.println("PAY ME CASH!");
-//        }else{
-//            System.out.println("Seat reserved");
-//        }
+        System.out.println(" ");
+        System.out.println("---------------");;
     }
 }
