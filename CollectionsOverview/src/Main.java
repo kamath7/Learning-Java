@@ -19,7 +19,7 @@ public class Main {
         }
 //both seatCpy and theatre share the same object
 
-        Collections.reverse(seatCpy);
+        Collections.shuffle(seatCpy);
         System.out.println("Printing seatCpy");
         printList(seatCpy);
         System.out.println("printing theatre.Seat");
