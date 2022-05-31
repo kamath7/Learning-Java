@@ -3,7 +3,7 @@ import java.util.*;
 public class Theatre {
 
     private final String theatreName;
-    private Collection<Seat> seats = new ArrayList<>(); //can change
+    private List<Seat> seats = new ArrayList<>(); //can change
 
     public Theatre(String theatreName, int numRows, int seatsPerRow) {
         this.theatreName = theatreName;
@@ -21,20 +21,28 @@ public class Theatre {
     }
 
     public boolean reserveSeat(String seatNo) {
-        Seat requestedSeat = null;
-        for (Seat seat : seats) {
-            System.out.println(".");
-            if (seat.getSeatNo().equals(seatNo)) {
-                requestedSeat = seat;
-                break;
-            }
-        }
 
-        if (requestedSeat == null) {
-            System.out.println("No seat with specified number!");
+        Seat requestedSeat = new Seat(seatNo);
+        int foundSeat = Collections.binarySearch(seats, requestedSeat, null);
+        if (foundSeat >= 0 ){
+            return seats.get(foundSeat).reserve();
+        }else{
+            System.out.println("Seat not available "+seatNo);
             return false;
         }
-        return requestedSeat.reserve(); //returns status - true
+//        for (Seat seat : seats) {
+//            System.out.println(".");
+//            if (seat.getSeatNo().equals(seatNo)) {
+//                requestedSeat = seat;
+//                break;
+//            }
+//        }
+//
+//        if (requestedSeat == null) {
+//            System.out.println("No seat with specified number!");
+//            return false;
+//        }
+//        return requestedSeat.reserve(); //returns status - true
     }
 
     public void getSeats() {
