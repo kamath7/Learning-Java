@@ -1,12 +1,9 @@
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class Theatre {
 
     private final String theatreName;
-    private Collection<Seat> seats = new HashSet<>(); //can change
+    private Collection<Seat> seats = new ArrayList<>(); //can change
 
     public Theatre(String theatreName, int numRows, int seatsPerRow) {
         this.theatreName = theatreName;
@@ -26,6 +23,7 @@ public class Theatre {
     public boolean reserveSeat(String seatNo) {
         Seat requestedSeat = null;
         for (Seat seat : seats) {
+            System.out.println(".");
             if (seat.getSeatNo().equals(seatNo)) {
                 requestedSeat = seat;
                 break;
@@ -45,7 +43,7 @@ public class Theatre {
         }
     }
 
-    private class Seat {
+    private class Seat implements Comparable<Seat>{
         private final String seatNo;
         private boolean reserved = false;
 
@@ -73,6 +71,11 @@ public class Theatre {
                 return true;
             }
             return false;
+        }
+
+        @Override
+        public int compareTo(Seat seat) {
+            return this.seatNo.compareToIgnoreCase(seat.getSeatNo());
         }
     }
 }
