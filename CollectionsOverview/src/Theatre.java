@@ -19,4 +19,26 @@ public class Theatre {
     public String getTheatreName() {
         return theatreName;
     }
+
+    public boolean reserveSeat(String seatNo){
+        Seat requestedSeat = null;
+        for (Seat seat: seats){
+            if (seat.getSeatNo().equals(seatNo)){
+                requestedSeat = seat;
+                break;
+            }
+        }
+
+        if(requestedSeat == null){
+            System.out.println("No seat with specified number!");
+            return false;
+        }
+        return requestedSeat.reserve(); //returns status - true
+    }
+
+    public void getSeats(){
+        for (Seat seat: seats){
+            System.out.println(seat.getSeatNo());
+        }
+    }
 }
