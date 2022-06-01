@@ -22,5 +22,10 @@ public class MapLearn {
             langs.put("Japan", "Japanese");
             System.out.println("Japan added successfully");
         }
+
+        System.out.println("---------------------------------------------");
+        for (String key: langs.keySet()){
+            System.out.println(key +" -> "+ langs.get(key));
+        }
     }
 }
