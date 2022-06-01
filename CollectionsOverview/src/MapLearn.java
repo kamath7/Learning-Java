@@ -27,5 +27,17 @@ public class MapLearn {
         for (String key: langs.keySet()){
             System.out.println(key +" -> "+ langs.get(key));
         }
+
+        System.out.println("----------------------");
+        langs.remove("France");
+        for (String key: langs.keySet()){
+            System.out.println(key +" -> "+ langs.get(key));
+        }
+
+        if (langs.remove("United Kingdom","London")){
+            System.out.println("Removed");
+        }else{
+            System.out.println("Failure");
+        }
     }
 }
