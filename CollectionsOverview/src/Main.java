@@ -36,7 +36,7 @@ public class Main {
 
     public static void printList(List<Theatre.Seat> list) {
         for (Theatre.Seat seat : list) {
-            System.out.println(" " + seat.getSeatNo()+ " "+ seat.getPrice());
+            System.out.println(" " + seat.getSeatNo()+ " "+ seat.getPrice()+"\n");
         }
         System.out.println(" ");
         System.out.println("---------------");
