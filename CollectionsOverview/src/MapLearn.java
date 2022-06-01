@@ -41,5 +41,12 @@ public class MapLearn {
         }
         System.out.println(langs.replace("Brazil","Spanish"));
         System.out.println(langs.replace("Bhutan","Not sure")); //wont be added
+
+
+        if (langs.replace("Brazil","Spanish","Portugese")){
+            System.out.println("Brazil updated");
+        }else{
+            System.out.println("Noo");
+        }
     }
 }
