@@ -34,10 +34,12 @@ public class MapLearn {
             System.out.println(key +" -> "+ langs.get(key));
         }
 
-        if (langs.remove("United Kingdom","London")){
+        if (langs.remove("United Kingdom","Cardiff")){ //fails
             System.out.println("Removed");
         }else{
             System.out.println("Failure");
         }
+        System.out.println(langs.replace("Brazil","Spanish"));
+        System.out.println(langs.replace("Bhutan","Not sure")); //wont be added
     }
 }
