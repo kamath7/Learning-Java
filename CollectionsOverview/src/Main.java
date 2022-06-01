@@ -20,6 +20,10 @@ public class Main {
         } else {
             System.out.println("Already reserved!");
         }
+
+        List<Theatre.Seat> reservedSeats = new ArrayList<>(theatre.getSeats());
+        Collections.reverse(reservedSeats);
+        printList(reservedSeats);
     }
 
     public static void printList(List<Theatre.Seat> list) {
@@ -28,6 +32,6 @@ public class Main {
         }
         System.out.println(" ");
         System.out.println("---------------");
-        ;
+
     }
 }
