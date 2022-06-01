@@ -10,6 +10,10 @@ public class MapLearn {
         langs.put("United Kingdom","London");
         langs.put("Brazil", "Portugese");
 
+        System.out.println(langs.put("Brazil", "Portugese")); //returns null
         System.out.println(langs.get("India"));
+        langs.put("France", "Frenchie"); //overrides the previous added val
+        System.out.println(langs.put("France", "Frenchie")); //prints the previous val
+        System.out.println(langs.get("France"));
     }
 }
