@@ -8,54 +8,26 @@ public class Main {
         //Sets map, queues - Part of collections
 
         Theatre theatre = new Theatre("Jyothi Talkies", 20, 5); //it doesn't exist anymore ☹
-        List<Theatre.Seat> seatCpy = new ArrayList<>(theatre.seats);
-        printList(seatCpy);
 
-        seatCpy.get(1).reserve();
         if (theatre.reserveSeat("A02")) {
             System.out.println("Pay for A02");
         } else {
             System.out.println("Already reserved!");
         }
-//both seatCpy and theatre share the same object
 
-        Collections.shuffle(seatCpy);
-        System.out.println("Printing seatCpy");
-        printList(seatCpy);
-        System.out.println("printing theatre.Seat");
-        printList(theatre.seats);
-
-        Theatre.Seat minSeat = Collections.min(seatCpy);
-        Theatre.Seat maxSeat = Collections.max(seatCpy);
-        System.out.println("Min seat no = "+minSeat.getSeatNo());
-        System.out.println("Max seat no = "+maxSeat.getSeatNo());
-
-        sortList(seatCpy);
-        System.out.println("Printing sorted copy");
-        printList(seatCpy);
-
-        List<Theatre.Seat> newList = new ArrayList<>(theatre.seats.size());
-        Collections.copy(newList, theatre.seats); //deep copy
-
-
+        if (theatre.reserveSeat("D04")) {
+            System.out.println("Pay for D04");
+        } else {
+            System.out.println("Already reserved!");
+        }
     }
 
     public static void printList(List<Theatre.Seat> list) {
         for (Theatre.Seat seat : list) {
-            System.out.println(" " + seat.getSeatNo());
+            System.out.println(" " + seat.getSeatNo()+ " "+ seat.getPrice());
         }
         System.out.println(" ");
         System.out.println("---------------");
         ;
-    }
-
-    public static void sortList(List<? extends Theatre.Seat> list ) {
-        for (int i =0 ; i< list.size(); i++){
-            for(int j= 0 ; j < list.size(); j++){
-                if (list.get(i).compareTo(list.get(j)) > 0){
-                    Collections.swap(list, i, j);
-                }
-            }
-        }
     }
 }
