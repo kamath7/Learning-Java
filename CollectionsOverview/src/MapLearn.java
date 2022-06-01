@@ -15,5 +15,12 @@ public class MapLearn {
         langs.put("France", "Frenchie"); //overrides the previous added val
         System.out.println(langs.put("France", "Frenchie")); //prints the previous val
         System.out.println(langs.get("France"));
+
+        if(langs.containsKey("Japan")){
+            System.out.println("Japan already present");
+        }else{
+            langs.put("Japan", "Japanese");
+            System.out.println("Japan added successfully");
+        }
     }
 }
