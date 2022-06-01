@@ -24,6 +24,14 @@ public class Main {
         List<Theatre.Seat> reservedSeats = new ArrayList<>(theatre.getSeats());
         Collections.reverse(reservedSeats);
         printList(reservedSeats);
+
+        List<Theatre.Seat> priceSeats = new ArrayList<>(theatre.getSeats());
+        priceSeats.add(theatre.new Seat("B00", 76.00));
+        priceSeats.add(theatre.new Seat("A00", 76.00));
+
+        Collections.sort(priceSeats, Theatre.PRICE_ORDER);
+        printList(priceSeats);
+
     }
 
     public static void printList(List<Theatre.Seat> list) {
