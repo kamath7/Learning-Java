@@ -50,9 +50,14 @@ public class Main {
                 System.out.println(exit + " | ");
             }
             System.out.println();
-            loc = scanner.nextInt();
-            if (!locations.containsKey(loc)){
-                System.out.println("Direction invalid");
+
+            String direction = scanner.nextLine().toUpperCase();
+
+            if(exits.containsKey(direction)){
+                System.out.println("Direction valid \n");
+                loc = exits.get(direction);
+            }else{
+                System.out.println("Cannot go towards that side");
             }
         }
     }
