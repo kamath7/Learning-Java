@@ -62,7 +62,16 @@ public class Main {
             System.out.println();
 
             String direction = scanner.nextLine().toUpperCase();
+            if(direction.length() > 1){
+                String[] words = direction.split(" ");
+                for (String word: words){
+                    if(vocabs.containsKey(word)){
+                        direction = vocabs.get(word);
+                        break;
+                    }
 
+                }
+            }
 
             if(exits.containsKey(direction)){
                 System.out.println("Direction valid \n");
