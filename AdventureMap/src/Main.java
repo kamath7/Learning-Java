@@ -43,6 +43,13 @@ public class Main {
                 break;
             }
 
+            Map<String, Integer> exits = locations.get(loc).getExits();
+            System.out.println("Available exits --> ");
+
+            for(String exit: exits.keySet()){
+                System.out.println(exit + " | ");
+            }
+            System.out.println();
             loc = scanner.nextInt();
             if (!locations.containsKey(loc)){
                 System.out.println("Direction invalid");
