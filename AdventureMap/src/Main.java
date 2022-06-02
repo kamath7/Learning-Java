@@ -36,6 +36,16 @@ public class Main {
 //        locations.get(5).addExit("Q",0);
 
 
+        Map<String, String> vocabs = new HashMap<String, String>();
+        vocabs.put("QUIT","Q");
+        vocabs.put("NORTH","N");
+        vocabs.put("SOUTH","S");
+        vocabs.put("WEST","W");
+        vocabs.put("EAST","E");
+
+
+
+
 
         while(true){
             System.out.println(locations.get(loc).getDescription());
@@ -52,6 +62,7 @@ public class Main {
             System.out.println();
 
             String direction = scanner.nextLine().toUpperCase();
+
 
             if(exits.containsKey(direction)){
                 System.out.println("Direction valid \n");
