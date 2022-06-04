@@ -61,6 +61,7 @@ public class Main {
         int loc = 1;
         while(true){
             System.out.println(locations.get(loc).getDescription());
+            tempExits.remove("S");
             if (loc == 0){
                 break;
             }
