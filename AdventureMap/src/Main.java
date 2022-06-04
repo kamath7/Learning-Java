@@ -12,7 +12,7 @@ public class Main {
 
         locations.put(0, new Location(0, "Computer and coding",tempExits));
 
-
+        tempExits = new HashMap<String, Integer>();
         tempExits.put("W",2);
         tempExits.put("E",3);
         tempExits.put("S",4);
