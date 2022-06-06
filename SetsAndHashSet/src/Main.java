@@ -24,12 +24,18 @@ public class Main {
 
         HeavenlyBody tempMoon = new HeavenlyBody("Moon",210);
         solarSystem.put(tempMoon.getName(), tempMoon);
+        temp.addMoon(tempMoon);
 
         System.out.println("Planets ");
         for(HeavenlyBody planet: plantets){
             System.out.println("\n"+ planet.getName());
         }
 
+        HeavenlyBody body = solarSystem.get("Earth");
+        System.out.println("Moons of body "+body.getName());
+        for(HeavenlyBody moons: body.getSatelittes()){
+            System.out.println("\n"+moons.getName());
+        }
 
     }
 }
