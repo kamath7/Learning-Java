@@ -45,5 +45,21 @@ public class Main {
         for(HeavenlyBody moon: moons){
             System.out.println("\n"+moon.getName());
         }
+
+        HeavenlyBody pluto = new HeavenlyBody("Nebula",390);
+        plantets.add(pluto);
+
+        for(HeavenlyBody planet: plantets){
+            System.out.println(planet.getName() + " -> "+planet.getOrbitalPeriod());
+        }
+
+        Object o = new Object(); //base class
+
+        o.equals(o);
+        System.out.println(("lalle".equals("")));
+
+        // if two objects are equal then hashcode is equal
+
+
     }
 }
