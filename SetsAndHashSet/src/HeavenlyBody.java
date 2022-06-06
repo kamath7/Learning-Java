@@ -21,4 +21,11 @@ final public class HeavenlyBody {
         return orbitalPeriod;
     }
 
+    public boolean addMoon(HeavenlyBody moon){
+        return this.satelittes.add(moon);
+    }
+
+    public Set<HeavenlyBody> getSatelittes() {
+        return new HashSet<>(this.satelittes); //to avoid npe
+    }
 }
