@@ -55,7 +55,7 @@ final public class HeavenlyBody {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public final boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
@@ -69,7 +69,7 @@ final public class HeavenlyBody {
     }
 
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         return this.name.hashCode() + 69;
     }
 }
