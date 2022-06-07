@@ -66,6 +66,17 @@ public class Main {
         unionTest.removeAll(intersectionTest);
         printTheSet(unionTest);
 
+        if(nature.containsAll(divine)){
+            System.out.println("Divine subset of nature");
+        }
+
+        if(nature.containsAll(intersectionTest)){
+            System.out.println("Intersection is subset of nature");
+        }
+
+        if(divine.containsAll(intersectionTest)){
+            System.out.println("intersection  is subset of divine");
+        }
     }
     private static void printTheSet(Set<String> set){
         System.out.println("\t");
