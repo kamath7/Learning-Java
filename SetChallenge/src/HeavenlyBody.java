@@ -27,7 +27,7 @@ final public class HeavenlyBody {
 //    public static final int ASTEROID = 7;
 
 
-    public HeavenlyBody(String name, double orbitalPeriod, BodyTypes bodyType ) {
+    public HeavenlyBody(String name, double orbitalPeriod, BodyTypes bodyType) {
         this.name = name;
         this.orbitalPeriod = orbitalPeriod;
         this.satelittes = new HashSet<>();
@@ -38,11 +38,15 @@ final public class HeavenlyBody {
         return name;
     }
 
+    public BodyTypes getBodyType() {
+        return bodyType;
+    }
+
     public double getOrbitalPeriod() {
         return orbitalPeriod;
     }
 
-    public boolean addMoon(HeavenlyBody moon) {
+    public boolean addSatellite(HeavenlyBody moon) {
         return this.satelittes.add(moon);
     }
 
@@ -55,16 +59,13 @@ final public class HeavenlyBody {
         if (this == obj) {
             return true;
         }
-
-        System.out.println("obj.getClass() is " + obj.getClass());
-        System.out.println("this.getClass() is " + this.getClass());
-
-        if ((obj == null) || (obj.getClass() != this.getClass())) {
-            return false;
+        if (obj instanceof HeavenlyBody) {
+            HeavenlyBody obj1 = (HeavenlyBody) obj;
+            if (this.name.equals(obj1.getName())) {
+                return this.bodyType == obj1.getBodyType();
+            }
         }
-
-        String objName = ((HeavenlyBody) obj).getName();
-        return this.name.equals(objName);
+        return false;
     }
 
     @Override
