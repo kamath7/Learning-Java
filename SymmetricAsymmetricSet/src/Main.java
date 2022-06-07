@@ -36,5 +36,18 @@ public class Main {
         for(String s : words){
             System.out.println(s);
         }
+
+        Set<String> nature = new HashSet<>();
+        Set<String> divine = new HashSet<>();
+
+        String[] arrWords1 = {"all","nature", "is","but","art","unknown","to","thee"};
+
+        nature.addAll(Arrays.asList(arrWords1));
+        String[] divineWords = {"to","err","is","human","to","forgive","divine"};
+
+        divine.addAll(Arrays.asList(divineWords));
+
+
+
     }
 }
