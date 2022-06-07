@@ -57,6 +57,15 @@ public class Main {
         diff2.removeAll(nature);
         printTheSet(diff2);
 
+        Set<String> unionTest = new HashSet<>(nature);
+        unionTest.addAll(divine);
+        Set<String> intersectionTest = new HashSet<>(nature);
+        intersectionTest.retainAll(divine);
+
+        System.out.println("Symmetric difference ");
+        unionTest.removeAll(intersectionTest);
+        printTheSet(unionTest);
+
     }
     private static void printTheSet(Set<String> set){
         System.out.println("\t");
