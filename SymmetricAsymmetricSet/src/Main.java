@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,5 +27,14 @@ public class Main {
             System.out.println(element+ " is sqrt of "+Math.sqrt(element) + " and cube of "+Math.cbrt(element));
         }
 
+        Set<String> words = new HashSet<>();
+
+        String sentence = "the quick brown fox jumped over the lazy dog";
+        String[] arrWord = sentence.split(" ");
+        words.addAll(Arrays.asList(arrWord));
+
+        for(String s : words){
+            System.out.println(s);
+        }
     }
 }
