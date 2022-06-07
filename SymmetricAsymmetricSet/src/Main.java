@@ -47,7 +47,23 @@ public class Main {
 
         divine.addAll(Arrays.asList(divineWords));
 
+        System.out.println("nature - divine -> ");
+        Set<String> diff1 = new HashSet<>(nature);
+        diff1.removeAll(divine);
+        printTheSet(diff1);
 
+        System.out.println("divine - nature ->");
+        Set<String> diff2 = new HashSet<>(divine);
+        diff2.removeAll(nature);
+        printTheSet(diff2);
 
+    }
+    private static void printTheSet(Set<String> set){
+        System.out.println("\t");
+
+        for(String s: set){
+            System.out.println(s+ " ");
+        }
+        System.out.println();
     }
 }
