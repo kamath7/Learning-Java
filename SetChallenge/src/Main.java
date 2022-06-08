@@ -37,7 +37,7 @@ public class Main {
             System.out.println("\n"+ planet.getKey());
         }
 
-        HeavenlyBody body = solarSystem.get("Earth");
+        HeavenlyBody body = solarSystem.get(HeavenlyBody.makeKey("Earth", HeavenlyBody.BodyTypes.PLANET));
         System.out.println("Moons of body "+body.getKey());
         for(HeavenlyBody moons: body.getSatelittes()){
             System.out.println("\n"+moons.getKey());

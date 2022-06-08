@@ -67,9 +67,10 @@ public abstract class HeavenlyBody {
         return this.key.hashCode();
     }
 
-    public static Key makeKey(String name, BodyTypes bodyType){
+    public static Key makeKey(String name, BodyTypes bodyType) {
         return new Key(name, bodyType);
     }
+
     @Override
     public String toString() {
         return this.key.name + " : " + this.key.bodyType + " : " + this.orbitalPeriod;
@@ -104,6 +105,11 @@ public abstract class HeavenlyBody {
                 return (this.bodyType == key.getBodyType());
             }
             return false;
+        }
+
+        @Override
+        public String toString() {
+            return this.name + " : " + this.bodyType;
         }
     }
 }
