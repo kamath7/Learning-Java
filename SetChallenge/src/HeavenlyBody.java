@@ -75,6 +75,38 @@ public abstract class HeavenlyBody {
 
     @Override
     public String toString() {
-        return this.name+ " : "+this.bodyType+" : " +this.orbitalPeriod;
+        return this.name + " : " + this.bodyType + " : " + this.orbitalPeriod;
+    }
+
+    public static final class Key {
+        private String name;
+        private BodyTypes bodyType;
+
+        private Key(String name, BodyTypes bodyType) {
+            this.name = name;
+            this.bodyType = bodyType;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public BodyTypes getBodyType() {
+            return bodyType;
+        }
+
+        @Override
+        public int hashCode() {
+            return this.name.hashCode() + 69 + this.bodyType.hashCode();
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            Key key = (Key) obj;
+            if (this.name.equals(key.getName())) {
+                return (this.bodyType == key.getBodyType());
+            }
+            return false;
+        }
     }
 }
