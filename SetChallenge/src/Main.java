@@ -65,6 +65,11 @@ public class Main {
         System.out.println(earth1.equals(temp1));
         System.out.println(temp.equals(earth1));
 
+        solarSystem.put(temp1.getKey(), temp1);
+        System.out.println(solarSystem.get(HeavenlyBody.makeKey("Earth", HeavenlyBody.BodyTypes.PLANET)));
+        System.out.println(solarSystem.get(HeavenlyBody.makeKey("Mars", HeavenlyBody.BodyTypes.PLANET)));
+
+
 
     }
 }
