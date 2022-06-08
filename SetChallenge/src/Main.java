@@ -26,6 +26,8 @@ public class Main {
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
 
+        HeavenlyBody temp1 = new Planet("Mars",190);
+
         HeavenlyBody tempMoon = new Moon("Moon", 29);
         solarSystem.put(tempMoon.getName(), tempMoon);
         temp.addSatellite(tempMoon);
@@ -54,7 +56,6 @@ public class Main {
         for(HeavenlyBody planet: planets){
 //            System.out.println(planet.getName() + " -> "+planet.getOrbitalPeriod());
             System.out.println(planet);
-
         }
 
         Object o = new Object(); //base class
