@@ -3,11 +3,11 @@ import java.util.Set;
 
 public abstract class HeavenlyBody {
 
-    private final String name;
+
     private final double orbitalPeriod;
     private final Set<HeavenlyBody> satelittes;
 
-    private final BodyTypes bodyType;
+    private final Key key;
 
 
     public enum BodyTypes {
@@ -28,18 +28,10 @@ public abstract class HeavenlyBody {
 
 
     public HeavenlyBody(String name, double orbitalPeriod, BodyTypes bodyType) {
-        this.name = name;
+        this.key = new Key(name, bodyType);
         this.orbitalPeriod = orbitalPeriod;
         this.satelittes = new HashSet<>();
-        this.bodyType = bodyType;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public BodyTypes getBodyType() {
-        return bodyType;
     }
 
     public double getOrbitalPeriod() {
@@ -54,6 +46,10 @@ public abstract class HeavenlyBody {
         return new HashSet<>(this.satelittes); //to avoid npe
     }
 
+    public Key getKey() {
+        return key;
+    }
+
     @Override
     public final boolean equals(Object obj) {
         if (this == obj) {
@@ -61,21 +57,22 @@ public abstract class HeavenlyBody {
         }
         if (obj instanceof HeavenlyBody) {
             HeavenlyBody obj1 = (HeavenlyBody) obj;
-            if (this.name.equals(obj1.getName())) {
-                return this.bodyType == obj1.getBodyType();
-            }
+            return this.key.equals(obj1.getKey());
         }
         return false;
     }
 
     @Override
     public final int hashCode() {
-        return this.name.hashCode() + 69 + this.bodyType.hashCode();
+        return this.key.hashCode();
     }
 
+    public static Key makeKey(String name, BodyTypes bodyType){
+        return new Key(name, bodyType);
+    }
     @Override
     public String toString() {
-        return this.name + " : " + this.bodyType + " : " + this.orbitalPeriod;
+        return this.key.name + " : " + this.key.bodyType + " : " + this.orbitalPeriod;
     }
 
     public static final class Key {
