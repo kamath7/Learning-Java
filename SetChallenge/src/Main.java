@@ -58,10 +58,12 @@ public class Main {
             System.out.println(planet);
         }
 
-        Object o = new Object(); //base class
-
-        o.equals(o);
-        System.out.println(("lalle".equals("")));
+        HeavenlyBody earth1 = new Planet("Earth",21);
+        HeavenlyBody earth2 = new Planet("Earth",211);
+        System.out.println(earth2.equals(earth1));
+        System.out.println(earth1.equals(earth2));
+        System.out.println(earth1.equals(temp1));
+        System.out.println(temp.equals(earth1));
 
 
     }
