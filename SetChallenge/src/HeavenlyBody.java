@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-final public class HeavenlyBody {
+public class HeavenlyBody {
 
     private final String name;
     private final double orbitalPeriod;
@@ -70,6 +70,11 @@ final public class HeavenlyBody {
 
     @Override
     public final int hashCode() {
-        return this.name.hashCode() + 69;
+        return this.name.hashCode() + 69 + this.bodyType.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return this.name+ " : "+this.bodyType+" : " +this.orbitalPeriod;
     }
 }
