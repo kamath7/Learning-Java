@@ -34,6 +34,14 @@ public class Main {
         System.out.println(kamsBasket);
         System.out.println(stockList);
 
+        temp = new StockItem("Pen",12.90);
+//        stockList.Items().put(temp.getName(), temp); //use
+
+        stockList.Items().get("Biscuits").adjuststock(1000);
+        System.out.println(stockList);
+        stockList.Items().get("Biscuits").adjuststock(-1000);
+
+
     }
 
     public static int sellItem(Basket basket , String item, int quantity){
