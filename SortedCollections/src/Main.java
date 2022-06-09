@@ -23,11 +23,17 @@ public class Main {
         temp = new StockItem("Onions", 56, 231);
         stockList.addStock(temp);
 
+//        System.out.println(stockList);
+
+        Basket kamsBasket = new Basket("Lalle");
+        sellItem(kamsBasket, "Paneer",1);
+        sellItem(kamsBasket,"Onions",2);
+        if(sellItem(kamsBasket,"Biscuits",7) != 1){
+            System.out.println("Biscuits unavailable");
+        }
+        System.out.println(kamsBasket);
         System.out.println(stockList);
 
-        for(String s: stockList.Items().keySet()){
-            System.out.println(s);
-        }
     }
 
     public static int sellItem(Basket basket , String item, int quantity){
@@ -35,6 +41,7 @@ public class Main {
         StockItem stockItem = stockList.get(item);
         if(stockItem == null){
             System.out.println("Dont have item "+item);
+            return 0;
         }
         if(stockList.sellStock(item, quantity) != 0){
             basket.addToBasket(stockItem, quantity);

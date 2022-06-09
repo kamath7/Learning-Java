@@ -9,7 +9,7 @@ public class StockList {
     private final Map<String, StockItem> list;
 
     public StockList() {
-        this.list = new HashMap<>();
+        this.list = new LinkedHashMap<>();
     }
 
     public int addStock(StockItem item) {
@@ -40,7 +40,7 @@ public class StockList {
     }
 
     public StockItem get(String key) {
-        return this.get(key);
+        return list.get(key);
     }
 
     public Map<String, StockItem> Items() {
