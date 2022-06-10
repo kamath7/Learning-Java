@@ -1,3 +1,5 @@
+import java.util.Map;
+
 public class Main {
     private static StockList stockList = new StockList();
 
@@ -41,6 +43,9 @@ public class Main {
         System.out.println(stockList);
         stockList.Items().get("Biscuits").adjuststock(-1000);
 
+        for(Map.Entry<String, Double> price: stockList.PriceList().entrySet()){
+            System.out.println(price.getKey() + " costs "+price.getValue());
+        }
 
     }
 
