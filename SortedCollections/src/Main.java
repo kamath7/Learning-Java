@@ -56,9 +56,22 @@ public class Main {
             System.out.println("Dont have item "+item);
             return 0;
         }
-        if(stockList.sellStock(item, quantity) != 0){
+        if(stockList.reserveStock(item, quantity) != 0){
             basket.addToBasket(stockItem, quantity);
-            return quantity;
+            return basket.addToBasket(stockItem,quantity);
+        }
+        return 0;
+    }
+
+    public static int removeItem(Basket basket , String item, int quantity){
+        //get items
+        StockItem stockItem = stockList.get(item);
+        if(stockItem == null){
+            System.out.println("Dont have item "+item);
+            return 0;
+        }
+        if(basket.removeFromBasket(stockItem, quantity) == quantity){
+            return stockList.unReserveStock(item, quantity);
         }
         return 0;
     }
