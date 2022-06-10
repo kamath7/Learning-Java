@@ -16,8 +16,6 @@ public class Main {
         stockList.addStock(temp);
         temp = new StockItem("Paneer", 156, 23);
         stockList.addStock(temp);
-        temp = new StockItem("Paneer", 150, 3);
-        stockList.addStock(temp);
         temp = new StockItem("Milk", 146, 74);
         stockList.addStock(temp);
         temp = new StockItem("Tomato", 80, 78);
@@ -41,11 +39,28 @@ public class Main {
 
         stockList.Items().get("Biscuits").adjuststock(1000);
         System.out.println(stockList);
-        stockList.Items().get("Biscuits").adjuststock(-1000);
 
-        for(Map.Entry<String, Double> price: stockList.PriceList().entrySet()){
-            System.out.println(price.getKey() + " costs "+price.getValue());
-        }
+        Basket alBasket = new Basket("Al");
+        sellItem(alBasket,"Onions",100);
+        sellItem(alBasket,"Cheese",3);
+        sellItem(alBasket,"Milk",3);
+        System.out.println(alBasket);
+        System.out.println("Milk removed "+removeItem(alBasket, "Milk",2));
+
+        removeItem(alBasket,"Cheese",1);
+        removeItem(alBasket,"Milk",1);
+        removeItem(alBasket,"Onions",50);
+
+
+        System.out.println("Stock list currently and after checkout");
+        System.out.println(alBasket);
+        System.out.println(stockList);
+        checkout(alBasket);
+        System.out.println(stockList);
+
+//        for(Map.Entry<String, Double> price: stockList.PriceList().entrySet()){
+//            System.out.println(price.getKey() + " costs "+price.getValue());
+//        }
 
     }
 
