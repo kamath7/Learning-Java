@@ -34,6 +34,24 @@ public class StockList {
         return 0;
     }
 
+    public int reserveStock(String item, int quantity){
+        StockItem inStock = list.get(item);
+
+        if((inStock != null) && (quantity > 0)){
+            return inStock.reserveStock(quantity);
+        }
+        return 0;
+    }
+
+    public int unReserveStock(String item, int quantity){
+        StockItem inStock = list.get(item);
+
+        if((inStock != null) && (quantity > 0)){
+            return inStock.unreserveStock(quantity);
+        }
+        return 0;
+    }
+
     public Map<String, StockItem> getList() {
         return list;
     }
