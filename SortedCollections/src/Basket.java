@@ -22,19 +22,35 @@ public class Basket {
         return 0;
     }
 
-    public Map<StockItem, Integer> Items(){
+    public int removeFromBasket(StockItem item, int quantity) {
+        if (item != null && quantity > 0) {
+            int inBasket = list.getOrDefault(item, 0);
+            int newQuantity = quantity + inBasket;
+
+            if (newQuantity > 0) {
+                list.put(item, newQuantity);
+                return quantity;
+            } else if (newQuantity == 0) {
+                list.remove(item);
+                return quantity;
+            }
+        }
+        return  0;
+    }
+
+    public Map<StockItem, Integer> Items() {
         return Collections.unmodifiableMap(list);
     }
 
     @Override
     public String toString() {
-        String s = "\n Shopping basket "+name+" contains "+((list.size() == 1) ? "There are no items " : list.size()) + "items";
+        String s = "\n Shopping basket " + name + " contains " + ((list.size() == 1) ? "There are no items " : list.size()) + "items";
         double cartVal = 0.0;
-        for(Map.Entry<StockItem, Integer> item: list.entrySet()){
-            s += item.getKey() + " "+ item.getValue() +" purchased \n";
+        for (Map.Entry<StockItem, Integer> item : list.entrySet()) {
+            s += item.getKey() + " " + item.getValue() + " purchased \n";
             cartVal += item.getKey().getPrice() * item.getValue();
 
         }
-        return s + "Total Cost: "+cartVal;
+        return s + "Total Cost: " + cartVal;
     }
 }
