@@ -1,4 +1,5 @@
 import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Lalle {
@@ -10,25 +11,31 @@ public class Lalle {
     }
 
     private static int divide() {
-        int x = getNum();
-        int y = getNum();
-        System.out.println("x - >" + x + " y-> " + y);
+        int x;
+        int y;
         try {
-            return x / y;
+            x = getNum();
+            y = getNum();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0;
+        } catch (NoSuchElementException e) {
+            throw new ArithmeticException("Incorrect input");
         }
+        try {
+            System.out.println("x - >" + x + " y-> " + y);
+            return x / y;
+        } catch (ArithmeticException e) {
+            throw new ArithmeticException("Dividing by zero is a crime");
+        }
+
     }
 
     private static int getNum() {
         System.out.println("Enter num");
-        while(true){
-            try{
+        while (true) {
+            try {
                 return scanner.nextInt();
 
-            }catch(InputMismatchException e){
+            } catch (InputMismatchException e) {
                 e.printStackTrace();
                 scanner.nextLine();
                 System.out.println("Incorrect input. Add numbers only");
