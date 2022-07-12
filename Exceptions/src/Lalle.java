@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Lalle {
@@ -23,6 +24,15 @@ public class Lalle {
 
     private static int getNum() {
         System.out.println("Enter num");
-        return scanner.nextInt();
+        while(true){
+            try{
+                return scanner.nextInt();
+
+            }catch(InputMismatchException e){
+                e.printStackTrace();
+                scanner.nextLine();
+                System.out.println("Incorrect input. Add numbers only");
+            }
+        }
     }
 }
