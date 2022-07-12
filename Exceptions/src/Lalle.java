@@ -6,8 +6,14 @@ public class Lalle {
     final static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int res = divide();
-        System.out.println(res);
+        try {
+            int res = divide();
+            System.out.println(res);
+
+        } catch (ArithmeticException e) {
+            e.printStackTrace();
+            System.out.println("Unable to perform division");
+        }
     }
 
     private static int divide() {
