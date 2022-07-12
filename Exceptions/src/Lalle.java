@@ -9,26 +9,20 @@ public class Lalle {
         try {
             int res = divide();
             System.out.println(res);
-
-        } catch (ArithmeticException e) {
-            e.printStackTrace();
-            System.out.println("Unable to perform division");
-        }
-    }
-
-    private static int divide() {
-        int x;
-        int y;
-        try {
-            x = getNum();
-            y = getNum();
-            System.out.println("x - >" + x + " y-> " + y);
-            return x / y;
         } catch (NoSuchElementException e) {
             throw new ArithmeticException("Incorrect input");
         } catch (ArithmeticException e) {
             throw new ArithmeticException("Dividing by zero is a crime");
         }
+    }
+
+    private static int divide() {
+
+        int x = getNum();
+        int y = getNum();
+        System.out.println("x - >" + x + " y-> " + y);
+        return x / y;
+
     }
 
     private static int getNum() {
