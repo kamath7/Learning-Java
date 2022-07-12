@@ -16,17 +16,13 @@ public class Lalle {
         try {
             x = getNum();
             y = getNum();
-
-        } catch (NoSuchElementException e) {
-            throw new ArithmeticException("Incorrect input");
-        }
-        try {
             System.out.println("x - >" + x + " y-> " + y);
             return x / y;
+        } catch (NoSuchElementException e) {
+            throw new ArithmeticException("Incorrect input");
         } catch (ArithmeticException e) {
             throw new ArithmeticException("Dividing by zero is a crime");
         }
-
     }
 
     private static int getNum() {
