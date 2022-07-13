@@ -106,21 +106,21 @@ public class Locations implements Map<Integer, Location> {
 
     @Override
     public void clear() {
-
+        locations.clear();
     }
 
     @Override
     public Set<Integer> keySet() {
-        return null;
+        return locations.keySet();
     }
 
     @Override
     public Collection<Location> values() {
-        return null;
+        return locations.values();
     }
 
     @Override
     public Set<Entry<Integer, Location>> entrySet() {
-        return null;
+        return locations.entrySet();
     }
 }
