@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +11,19 @@ import java.util.function.Function;
 public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locations = new HashMap<Integer, Location>();
 
+    public static void main(String[] args) {
+        FileWriter local = null;
+        try{
+            local = new FileWriter("lalle.txt");
+            for (Location location: locations.values()){
+                local.write(location.getLocationID()+" -- "+ location.getDescription());
+            }
+            local.close();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
+    }
     static {
         Map<String, Integer> tempExit = new HashMap<String, Integer>();
         locations.put(0, new Location(0, "You are sitting in front of a computer learning Java",null));
