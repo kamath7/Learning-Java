@@ -11,22 +11,17 @@ import java.util.function.Function;
 public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locations = new HashMap<Integer, Location>();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         FileWriter local = null;
         try {
             local = new FileWriter("lalle.txt");
             for (Location location : locations.values()) {
                 local.write(location.getLocationID() + " -- " + location.getDescription() + "\n");
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         } finally {
-            try {
-                if(local != null){
-                    local.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
+
+            if (local != null) {
+                local.close();
             }
         }
     }
