@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collection;
@@ -14,8 +15,14 @@ public class Locations implements Map<Integer, Location> {
     public static void main(String[] args) throws IOException {
 
         try (FileWriter local = new FileWriter("locs.txt")) {
+            FileWriter directions = new FileWriter("direction.txt");
+
             for (Location location : locations.values()) {
                 local.write(location.getLocationID() + " -- " + location.getDescription() + "\n");
+
+                for (String direction : location.getExits().keySet()) {
+                    directions.write(location.getLocationID() + " -- " + location.getExits().get(direction) + "\n");
+                }
             }
         }
 
