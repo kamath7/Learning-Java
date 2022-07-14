@@ -12,19 +12,25 @@ public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locations = new HashMap<Integer, Location>();
 
     public static void main(String[] args) throws IOException {
-        FileWriter local = null;
-        try {
-            local = new FileWriter("lalle.txt");
+
+        try (FileWriter local = new FileWriter("locs.txt")) {
             for (Location location : locations.values()) {
                 local.write(location.getLocationID() + " -- " + location.getDescription() + "\n");
-                throw new IOException("test exception thrown ");
-            }
-        } finally {
-
-            if (local != null) {
-                local.close();
             }
         }
+
+//        FileWriter local = null;
+//        try {
+//            local = new FileWriter("lalle.txt");
+//            for (Location location : locations.values()) {
+//                local.write(location.getLocationID() + " -- " + location.getDescription() + "\n");
+//            }
+//        } finally {
+//
+//            if (local != null) {
+//                local.close();
+//            }
+//        }
     }
 
     static {
