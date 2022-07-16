@@ -61,11 +61,16 @@ public class Locations implements Map<Integer, Location> {
             scanner = new Scanner(new BufferedReader(new FileReader("direction.txt")));
             scanner.useDelimiter(" -- ");
             while (scanner.hasNextLine()) {
-                int loc = scanner.nextInt();
-                String direc = scanner.next();
-                scanner.skip(scanner.delimiter()); //go to the next --
-                String dest = scanner.nextLine();
-                int destination = Integer.parseInt(dest);
+//                int loc = scanner.nextInt();
+//                String direc = scanner.next();
+//                scanner.skip(scanner.delimiter()); //go to the next --
+//                String dest = scanner.nextLine();
+//                int destination = Integer.parseInt(dest);
+                String input = scanner.nextLine();
+                String[] data = input.split(" -- ");
+                int loc = Integer.parseInt(data[0]);
+                String direc = data[1];
+                int destination = Integer.parseInt(data[2]);
                 System.out.println(loc + ": " + direc + " : " + destination);
                 Location location = locations.get(loc);
                 location.addExit(direc, destination);
