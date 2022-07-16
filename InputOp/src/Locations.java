@@ -40,7 +40,7 @@ public class Locations implements Map<Integer, Location> {
 
         try {
             scanner = new Scanner(new FileReader("locations_big.txt"));
-            scanner.useDelimiter(" -- ");
+            scanner.useDelimiter(",");
             while (scanner.hasNextLine()) {
                 int loc = scanner.nextInt();
                 scanner.skip(scanner.delimiter());
@@ -67,7 +67,7 @@ public class Locations implements Map<Integer, Location> {
 //                String dest = scanner.nextLine();
 //                int destination = Integer.parseInt(dest);
                 String input = scanner.nextLine();
-                String[] data = input.split(" -- ");
+                String[] data = input.split(",");
                 int loc = Integer.parseInt(data[0]);
                 String direc = data[1];
                 int destination = Integer.parseInt(data[2]);
