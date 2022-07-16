@@ -1,7 +1,4 @@
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
@@ -58,6 +55,23 @@ public class Locations implements Map<Integer, Location> {
             if (scanner != null) {
                 scanner.close();
             }
+        }
+
+        try {
+            scanner = new Scanner(new BufferedReader(new FileReader("directions.txt")));
+            scanner.useDelimiter(" -- ");
+            while (scanner.hasNextLine()) {
+                int loc = scanner.nextInt();
+                String direc = scanner.next();
+                scanner.skip(scanner.delimiter()); //go to the next --
+                String dest = scanner.nextLine();
+                int destination = Integer.parseInt(dest);
+                System.out.println(loc + ": " + direc + " : " + destination);
+                Location location = locations.get(loc);
+                location.addExit(direc, destination);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
 //        Map<String, Integer> tempExit = new HashMap<String, Integer>();
