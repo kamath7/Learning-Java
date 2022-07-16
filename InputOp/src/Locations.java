@@ -50,15 +50,16 @@ public class Locations implements Map<Integer, Location> {
             e.printStackTrace();
         }
 
-        try (Scanner scanner = new Scanner(new BufferedReader(new FileReader("directions_big.txt")))) {
-            scanner.useDelimiter(" -- ");
-            while (scanner.hasNextLine()) {
+        try (BufferedReader dirfile = new BufferedReader(new FileReader("directions_big.txt"))) {
+            String input;
+
+            while ((input = dirfile.readLine()) != null) {
 //                int loc = scanner.nextInt();
 //                String direc = scanner.next();
 //                scanner.skip(scanner.delimiter()); //go to the next --
 //                String dest = scanner.nextLine();
 //                int destination = Integer.parseInt(dest);
-                String input = scanner.nextLine();
+
                 String[] data = input.split(",");
                 int loc = Integer.parseInt(data[0]);
                 String direc = data[1];
