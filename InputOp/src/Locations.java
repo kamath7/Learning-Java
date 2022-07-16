@@ -58,7 +58,7 @@ public class Locations implements Map<Integer, Location> {
         }
 
         try {
-            scanner = new Scanner(new BufferedReader(new FileReader("directions.txt")));
+            scanner = new Scanner(new BufferedReader(new FileReader("direction.txt")));
             scanner.useDelimiter(" -- ");
             while (scanner.hasNextLine()) {
                 int loc = scanner.nextInt();
