@@ -5,15 +5,15 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class Locations implements Map<Integer, Location> {
-    private static Map<Integer, Location> locations = new HashMap<Integer, Location>();
+    private static Map<Integer, Location> locations = new LinkedHashMap<Integer, Location>();
 
     public static void main(String[] args) throws IOException {
 
-        try (FileWriter local = new FileWriter("locs.txt")) {
-            FileWriter directions = new FileWriter("direction.txt");
+        try (BufferedWriter locFile = new BufferedWriter(new FileWriter("locs.txt"))) {
+            BufferedWriter directions = new BufferedWriter(new FileWriter("direction.txt"));
 
             for (Location location : locations.values()) {
-                local.write(location.getLocationID() + " -- " + location.getDescription() + "\n");
+                locFile.write(location.getLocationID() + " -- " + location.getDescription() + "\n");
 
                 for (String direction : location.getExits().keySet()) {
                     directions.write(location.getLocationID() + " -- " + location.getExits().get(direction) + "\n");
