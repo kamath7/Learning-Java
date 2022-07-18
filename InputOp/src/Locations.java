@@ -25,21 +25,6 @@ public class Locations implements Map<Integer, Location> {
                 }
             }
         }
-
-
-//        try (BufferedWriter locFile = new BufferedWriter(new FileWriter("locs.txt"))) {
-//            BufferedWriter directions = new BufferedWriter(new FileWriter("direction.txt"));
-//
-//            for (Location location : locations.values()) {
-//                locFile.write(location.getLocationID() + " -- " + location.getDescription() + "\n");
-//
-//                for (String direction : location.getExits().keySet()) {
-//                    if(!direction.equalsIgnoreCase("Q")){
-//                        directions.write(location.getLocationID() + " -- " + location.getExits().get(direction) + "\n");
-//                    }
-//                }
-//            }
-//        }
     }
 
     static {
