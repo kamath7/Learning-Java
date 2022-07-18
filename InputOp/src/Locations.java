@@ -16,7 +16,9 @@ public class Locations implements Map<Integer, Location> {
                 locFile.write(location.getLocationID() + " -- " + location.getDescription() + "\n");
 
                 for (String direction : location.getExits().keySet()) {
-                    directions.write(location.getLocationID() + " -- " + location.getExits().get(direction) + "\n");
+                    if(!direction.equalsIgnoreCase("Q")){
+                        directions.write(location.getLocationID() + " -- " + location.getExits().get(direction) + "\n");
+                    }
                 }
             }
         }
