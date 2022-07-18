@@ -9,19 +9,37 @@ public class Locations implements Map<Integer, Location> {
 
     public static void main(String[] args) throws IOException {
 
-        try (BufferedWriter locFile = new BufferedWriter(new FileWriter("locs.txt"))) {
-            BufferedWriter directions = new BufferedWriter(new FileWriter("direction.txt"));
-
+        try (DataOutputStream locFile = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("locations.dat")))) {
             for (Location location : locations.values()) {
-                locFile.write(location.getLocationID() + " -- " + location.getDescription() + "\n");
-
+                locFile.writeInt(location.getLocationID());
+                locFile.writeUTF(location.getDescription());
+                System.out.println("Writing location id " + location.getLocationID() + " Locatkion description " + location.getDescription());
+                System.out.println("Exits written - " + (location.getExits().size() - 1));
+                locFile.writeInt(location.getExits().size() - 1);
                 for (String direction : location.getExits().keySet()) {
-                    if(!direction.equalsIgnoreCase("Q")){
-                        directions.write(location.getLocationID() + " -- " + location.getExits().get(direction) + "\n");
+                    if (!direction.equalsIgnoreCase("Q")) {
+                        System.out.println("\t" + direction + "," + location.getExits().get(direction));
+                        locFile.writeUTF(direction);
+                        locFile.writeInt(location.getExits().get(direction));
                     }
                 }
             }
         }
+
+
+//        try (BufferedWriter locFile = new BufferedWriter(new FileWriter("locs.txt"))) {
+//            BufferedWriter directions = new BufferedWriter(new FileWriter("direction.txt"));
+//
+//            for (Location location : locations.values()) {
+//                locFile.write(location.getLocationID() + " -- " + location.getDescription() + "\n");
+//
+//                for (String direction : location.getExits().keySet()) {
+//                    if(!direction.equalsIgnoreCase("Q")){
+//                        directions.write(location.getLocationID() + " -- " + location.getExits().get(direction) + "\n");
+//                    }
+//                }
+//            }
+//        }
     }
 
     static {
