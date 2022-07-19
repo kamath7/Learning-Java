@@ -9,22 +9,28 @@ public class Locations implements Map<Integer, Location> {
 
     public static void main(String[] args) throws IOException {
 
-        try (DataOutputStream locFile = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("locations.dat")))) {
-            for (Location location : locations.values()) {
-                locFile.writeInt(location.getLocationID());
-                locFile.writeUTF(location.getDescription());
-                System.out.println("Writing location id " + location.getLocationID() + " Locatkion description " + location.getDescription());
-                System.out.println("Exits written - " + (location.getExits().size() - 1));
-                locFile.writeInt(location.getExits().size() - 1);
-                for (String direction : location.getExits().keySet()) {
-                    if (!direction.equalsIgnoreCase("Q")) {
-                        System.out.println("\t" + direction + "," + location.getExits().get(direction));
-                        locFile.writeUTF(direction);
-                        locFile.writeInt(location.getExits().get(direction));
-                    }
-                }
+        try (ObjectOutputStream locFile = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("locations.dat")))) {
+            for(Location location: locations.values()){
+                locFile.writeObject(location);
             }
         }
+
+//        try (DataOutputStream locFile = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("locations.dat")))) {
+//            for (Location location : locations.values()) {
+//                locFile.writeInt(location.getLocationID());
+//                locFile.writeUTF(location.getDescription());
+//                System.out.println("Writing location id " + location.getLocationID() + " Locatkion description " + location.getDescription());
+//                System.out.println("Exits written - " + (location.getExits().size() - 1));
+//                locFile.writeInt(location.getExits().size() - 1);
+//                for (String direction : location.getExits().keySet()) {
+//                    if (!direction.equalsIgnoreCase("Q")) {
+//                        System.out.println("\t" + direction + "," + location.getExits().get(direction));
+//                        locFile.writeUTF(direction);
+//                        locFile.writeInt(location.getExits().get(direction));
+//                    }
+//                }
+//            }
+//        }
     }
 
     static {
