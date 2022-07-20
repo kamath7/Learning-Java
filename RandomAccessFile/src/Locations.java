@@ -7,6 +7,8 @@ import java.util.function.Function;
 public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locations = new LinkedHashMap<Integer, Location>();
     private static Map<Integer, IndexRecord> index = new LinkedHashMap<>();
+
+    private static RandomAccessFile ra;
     public static void main(String[] args) throws IOException {
 
         try(RandomAccessFile raf = new RandomAccessFile("locations_rand.dat","rwd")){
@@ -38,30 +40,55 @@ public class Locations implements Map<Integer, Location> {
                 startPointer = (int) raf.getFilePointer();
 
             }
+
+            raf.seek(indexStart);
+
+            for(Integer locationId: index.keySet()){
+                raf.writeInt(locationId);
+                raf.writeInt(index.get(locationId).getStartByte());
+                raf.writeInt(index.get(locationId).getLength());
+            }
         }
     }
 
     static {
-        try (ObjectInputStream locFile = new ObjectInputStream(new BufferedInputStream(new FileInputStream("locations.dat")))) {
-            boolean endOfile = false;
 
-            while (!endOfile) {
-                try {
-                    Location location = (Location) locFile.readObject();
-                    System.out.println("Location " + location.getLocationID() + " " + location.getDescription());
-                    System.out.println("Found " + location.getExits().size() + " exits");
-                    locations.put(location.getLocationID(), location);
-                } catch (EOFException e) {
-                    endOfile = true;
-                }
+        try{
+            ra = new RandomAccessFile("Locations_rand.dat", "rwd");
+            int numloc = ra.readInt();
+            long locationStartPt = ra.readInt();
+
+            while(ra.getFilePointer() < locationStartPt){
+                int locationId = ra.readInt();
+                int locationStart = ra.readInt();
+                int locationLength = ra.readInt();
+
+                IndexRecord record = new IndexRecord(locationStart, locationLength);
+                index.put(locationId, record);
             }
-        } catch (InvalidClassException e1) {
-            e1.printStackTrace();
-        } catch (IOException e2) {
-            e2.printStackTrace();
-        } catch (ClassNotFoundException e3) {
-            e3.printStackTrace();
+        }catch(IOException e){
+            e.printStackTrace();
         }
+//        try (ObjectInputStream locFile = new ObjectInputStream(new BufferedInputStream(new FileInputStream("locations.dat")))) {
+//            boolean endOfile = false;
+//
+//            while (!endOfile) {
+//                try {
+//                    Location location = (Location) locFile.readObject();
+//                    System.out.println("Location " + location.getLocationID() + " " + location.getDescription());
+//                    System.out.println("Found " + location.getExits().size() + " exits");
+//                    locations.put(location.getLocationID(), location);
+//                } catch (EOFException e) {
+//                    endOfile = true;
+//                }
+//            }
+//        } catch (InvalidClassException e1) {
+//            e1.printStackTrace();
+//        } catch (IOException e2) {
+//            e2.printStackTrace();
+//        } catch (ClassNotFoundException e3) {
+//            e3.printStackTrace();
+//        }
 //
 //            while (!endOfile) {
 //                try {
