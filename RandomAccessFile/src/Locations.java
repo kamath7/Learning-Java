@@ -6,7 +6,7 @@ import java.util.function.Function;
 
 public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locations = new LinkedHashMap<Integer, Location>();
-
+    private static Map<Integer, IndexRecord> index = new LinkedHashMap<>();
     public static void main(String[] args) throws IOException {
 
         try(RandomAccessFile raf = new RandomAccessFile("locations_rand.dat","rwd")){
@@ -15,6 +15,29 @@ public class Locations implements Map<Integer, Location> {
             int locationStart = (int) (indexSize + raf.getFilePointer() + Integer.BYTES);
             raf.writeInt(locationStart);
 
+            long indexStart = raf.getFilePointer();
+            int startPointer = locationStart;
+
+            raf.seek(startPointer);
+
+            for(Location location: locations.values()){
+                raf.writeInt(location.getLocationID());
+                raf.writeUTF(location.getDescription());
+                StringBuilder builder = new StringBuilder();
+                for(String direction: location.getExits().keySet()){
+                    if(!direction.equalsIgnoreCase("Q")){
+                        builder.append(direction);
+                        builder.append(",");
+                        builder.append(location.getExits().get(direction));
+                        builder.append(",");
+                    }
+                }
+                raf.writeUTF(builder.toString());
+                IndexRecord indexRecord = new IndexRecord(startPointer, (int) (raf.getFilePointer() - startPointer));
+                index.put(location.getLocationID(), indexRecord);
+                startPointer = (int) raf.getFilePointer();
+
+            }
         }
     }
 
