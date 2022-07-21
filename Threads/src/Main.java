@@ -5,5 +5,8 @@ public class Main {
         anotherOne.start();
 
         System.out.println("Hello Again");
+        //cannot start a thread more than once.
+
+//        anotherOne.start(); //won't work
     }
 }
