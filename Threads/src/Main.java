@@ -3,5 +3,7 @@ public class Main {
         System.out.println("Main Thread!");
         Thread anotherOne = new SomeThread();
         anotherOne.start();
+
+        System.out.println("Hello Again");
     }
 }
