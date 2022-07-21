@@ -1,6 +1,7 @@
+
 public class SomeThread extends Thread{
     @Override
     public void run() {
-        System.out.println("Second Thread Calling!");
+        System.out.println(ThreadColor.ANSI_BLUE+ "Second Thread Calling!");
     }
 }

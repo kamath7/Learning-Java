@@ -1,12 +1,12 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Main Thread!");
+        System.out.println(ThreadColor.ANSI_RED+"Main Thread!");
         Thread anotherOne = new SomeThread();
         anotherOne.start();
 
         new Thread(){
             public void run(){
-                System.out.println("Anonymous thread now running!");
+                System.out.println(ThreadColor.ANSI_PURPLE+"Anonymous thread now running!");
             }
         }.start();
 
