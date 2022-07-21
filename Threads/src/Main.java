@@ -10,7 +10,13 @@ public class Main {
             }
         }.start();
 
-        Thread myRunnable = new Thread(new MyRunnable());
+        Thread myRunnable = new Thread(new MyRunnable(){
+            @Override
+            public void run() {
+//                super.run();
+                System.out.println(ThreadColor.ANSI_RED+" Anonymous class run!");
+            }
+        });
         myRunnable.start();
 
         System.out.println("Hello Again");
