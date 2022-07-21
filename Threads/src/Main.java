@@ -10,6 +10,9 @@ public class Main {
             }
         }.start();
 
+        Thread myRunnable = new Thread(new MyRunnable());
+        myRunnable.start();
+
         System.out.println("Hello Again");
         //cannot start a thread more than once.
 
