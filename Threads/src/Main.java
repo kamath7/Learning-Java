@@ -19,7 +19,7 @@ public class Main {
             }
         });
         myRunnable.start();
-
+        anotherOne.interrupt();
         System.out.println("Hello Again");
         //cannot start a thread more than once.
 

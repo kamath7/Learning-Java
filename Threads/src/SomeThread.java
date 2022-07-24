@@ -7,7 +7,9 @@ public class SomeThread extends Thread {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             System.out.println(ThreadColor.ANSI_BLUE+"Another one woke me ");
-            e.printStackTrace();
+            return ;
+//            e.printStackTrace();
+
         }
         System.out.println(ThreadColor.ANSI_BLUE+"Awoken from 3 second slumber ");
     }
