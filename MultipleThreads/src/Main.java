@@ -15,7 +15,7 @@ public class Main {
 }
 
 class CountDown {
-
+//in the for loop the thread can be suspended during the for's operations. in the current case we have given a shared variable in the heap which all threads use.
     private int i;
     public void doACountdown() {
 
