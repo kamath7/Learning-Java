@@ -16,6 +16,13 @@ public class Main {
             public void run() {
 //                super.run();
                 System.out.println(ThreadColor.ANSI_RED + " Anonymous class run!");
+                try{
+                    anotherOne.join();
+                    System.out.println(ThreadColor.ANSI_RED+" Somethread terminated. I'm now Usain Bolt");
+                }catch(InterruptedException e){
+                    System.out.println(ThreadColor.ANSI_RED+" Was interrupted again!");
+                    e.printStackTrace();
+                }
             }
         });
         myRunnable.start();
