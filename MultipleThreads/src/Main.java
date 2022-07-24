@@ -15,7 +15,10 @@ public class Main {
 }
 
 class CountDown {
+
+    private int i;
     public void doACountdown() {
+
         String color;
         switch (Thread.currentThread().getName()) {
             case "Thread 1":
@@ -31,7 +34,7 @@ class CountDown {
                 color = ThreadColor.ANSI_PURPLE;
         }
 
-        for (int i = 10; i > 0; i--) {
+        for (i = 10; i > 0; i--) {
             System.out.println(color + Thread.currentThread().getName() + ": " + i);
         }
     }
