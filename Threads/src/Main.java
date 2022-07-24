@@ -17,7 +17,7 @@ public class Main {
 //                super.run();
                 System.out.println(ThreadColor.ANSI_RED + " Anonymous class run!");
                 try{
-                    anotherOne.join();
+                    anotherOne.join(3000);
                     System.out.println(ThreadColor.ANSI_RED+" Somethread terminated. I'm now Usain Bolt");
                 }catch(InterruptedException e){
                     System.out.println(ThreadColor.ANSI_RED+" Was interrupted again!");
