@@ -2,23 +2,23 @@ public class Main {
     public static void main(String[] args) {
 
         CountDown countDown = new CountDown();
+//        CountDown countDown2 = new CountDown();
+
         CountDownThread t1 = new CountDownThread(countDown);
         t1.setName("Thread 1");
         CountDownThread t2 = new CountDownThread(countDown);
         t2.setName("Thread 2");
-        CountDownThread t3 = new CountDownThread(countDown);
-        t3.setName("Thread 3");
         t1.start();
         t2.start();
-        t3.start();
     }
 }
 
 class CountDown {
-//in the for loop the thread can be suspended during the for's operations. in the current case we have given a shared variable in the heap which all threads use.
+    //in the for loop the thread can be suspended during the for's operations. in the current case we have given a shared variable in the heap which all threads use.
     private int i;
-    public void doACountdown() {
 
+    public synchronized void doACountdown() {
+//synchronized here makes the thread 1 complete the countdown and then lets thread2 do it
         String color;
         switch (Thread.currentThread().getName()) {
             case "Thread 1":
