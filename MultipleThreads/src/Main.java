@@ -17,7 +17,7 @@ class CountDown {
     //in the for loop the thread can be suspended during the for's operations. in the current case we have given a shared variable in the heap which all threads use.
     private int i;
 
-    public synchronized void doACountdown() {
+    public void doACountdown() {
 //synchronized here makes the thread 1 complete the countdown and then lets thread2 do it
         String color;
         switch (Thread.currentThread().getName()) {
@@ -33,10 +33,12 @@ class CountDown {
             default:
                 color = ThreadColor.ANSI_PURPLE;
         }
-
-        for (i = 10; i > 0; i--) {
-            System.out.println(color + Thread.currentThread().getName() + ": " + i);
+        synchronized (this) {
+            for (i = 10; i > 0; i--) {
+                System.out.println(color + Thread.currentThread().getName() + ": " + i);
+            }
         }
+
     }
 }
 
