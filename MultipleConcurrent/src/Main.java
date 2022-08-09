@@ -71,10 +71,12 @@ class Consumer implements Runnable {
         while (true) {
                 bufferLock.lock();
                 if (buffer.isEmpty()) {
+                    bufferLock.unlock();
                     continue;
                 }
                 if (buffer.get(0).equals("EOF")) {
                     System.out.println(color + "exiting");
+                    bufferLock.unlock();
                     break;
                 } else {
                     System.out.println(color + "Removed " + buffer.remove(0));
