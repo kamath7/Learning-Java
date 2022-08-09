@@ -4,16 +4,17 @@ import java.util.Random;
 
 public class Main {
     public static final String EOF = "EOF";
+
     public static void main(String[] args) {
 
-     List<String> buffer = new ArrayList<String>();
-     MyProducer producer = new MyProducer(buffer, ThreadColor.ANSI_YELLOW);
-     Consumer consumer = new Consumer(buffer, ThreadColor.ANSI_CYAN);
-     Consumer consumer1 = new Consumer(buffer, ThreadColor.ANSI_WHITE);
+        List<String> buffer = new ArrayList<String>();
+        MyProducer producer = new MyProducer(buffer, ThreadColor.ANSI_YELLOW);
+        Consumer consumer = new Consumer(buffer, ThreadColor.ANSI_CYAN);
+        Consumer consumer1 = new Consumer(buffer, ThreadColor.ANSI_WHITE);
 
-     new Thread(producer).start();
-     new Thread(consumer).start();
-     new Thread(consumer1).start();
+        new Thread(producer).start();
+        new Thread(consumer).start();
+        new Thread(consumer1).start();
     }
 }
 
@@ -33,18 +34,23 @@ class MyProducer implements Runnable {
         for (String num : nums) {
             try {
                 System.out.println(color + "Adding " + num);
-                buffer.add((num));
+                synchronized (buffer) {
+                    buffer.add((num));
+
+                }
                 Thread.sleep(random.nextInt(1000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
         System.out.println(color + "EOF. Exiting");
-        buffer.add("EOF");
+        synchronized (buffer) {
+            buffer.add("EOF");
+        }
     }
 }
 
-class Consumer implements Runnable{
+class Consumer implements Runnable {
     private List<String> buffer;
     private String color;
 
@@ -53,17 +59,20 @@ class Consumer implements Runnable{
         this.color = color;
     }
 
-    public void run(){
-        while(true){
-            if(buffer.isEmpty()){
-                continue;
+    public void run() {
+        while (true) {
+            synchronized (buffer) {
+                if (buffer.isEmpty()) {
+                    continue;
+                }
+                if (buffer.get(0).equals("EOF")) {
+                    System.out.println(color + "exiting");
+                    break;
+                } else {
+                    System.out.println(color + "Removed " + buffer.remove(0));
+                }
             }
-            if(buffer.get(0).equals("EOF")){
-                System.out.println(color + "exiting");
-                break;
-            }else{
-                System.out.println(color + "Removed "+buffer.remove(0));
-            }
+
         }
     }
 
