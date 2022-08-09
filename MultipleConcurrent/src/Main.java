@@ -30,5 +30,32 @@ class MyProducer implements Runnable {
                 e.printStackTrace();
             }
         }
+        System.out.println(color + "EOF. Exiting");
+        buffer.add("EOF");
     }
+}
+
+class Consumer implements Runnable{
+    private List<String> buffer;
+    private String color;
+
+    public Consumer(List<String> buffer, String color) {
+        this.buffer = buffer;
+        this.color = color;
+    }
+
+    public void run(){
+        while(true){
+            if(buffer.isEmpty()){
+                continue;
+            }
+            if(buffer.get(0).equals("EOF")){
+                System.out.println(color + "exiting");
+                break;
+            }else{
+                System.out.println(color + "Removed "+buffer.remove(0));
+            }
+        }
+    }
+
 }
