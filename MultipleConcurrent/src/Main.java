@@ -75,21 +75,28 @@ class Consumer implements Runnable {
     }
 
     public void run() {
+
+        int counter = 0;
         while (true) {
-            bufferLock.lock();
-            try {
-                if (buffer.isEmpty()) {
-                    continue;
+            if (bufferLock.tryLock()) {
+                try {
+                    if (buffer.isEmpty()) {
+                        continue;
+                    }
+                    System.out.println(color + " the counter -> "+counter);
+                    if (buffer.get(0).equals("EOF")) {
+                        System.out.println(color + "exiting");
+                        break;
+                    } else {
+                        System.out.println(color + "Removed " + buffer.remove(0));
+                    }
+                } finally {
+                    bufferLock.unlock();
                 }
-                if (buffer.get(0).equals("EOF")) {
-                    System.out.println(color + "exiting");
-                    break;
-                } else {
-                    System.out.println(color + "Removed " + buffer.remove(0));
-                }
-            } finally {
-                bufferLock.unlock();
+            }else{
+                counter++;
             }
+
         }
     }
 
