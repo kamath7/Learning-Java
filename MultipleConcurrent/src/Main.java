@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Main {
@@ -10,13 +12,17 @@ public class Main {
 
         List<String> buffer = new ArrayList<String>();
         ReentrantLock bufferLock = new ReentrantLock();
+
+        ExecutorService executorService = Executors.newFixedThreadPool(3); //producer, consumers * 2
+
         MyProducer producer = new MyProducer(buffer, ThreadColor.ANSI_YELLOW, bufferLock);
         Consumer consumer = new Consumer(buffer, ThreadColor.ANSI_CYAN, bufferLock);
         Consumer consumer1 = new Consumer(buffer, ThreadColor.ANSI_WHITE, bufferLock);
 
-        new Thread(producer).start();
-        new Thread(consumer).start();
-        new Thread(consumer1).start();
+        executorService.execute(producer);
+        executorService.execute(consumer);
+        executorService.execute(consumer1);
+
     }
 }
 
