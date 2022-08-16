@@ -23,6 +23,9 @@ public class Main {
         executorService.execute(consumer);
         executorService.execute(consumer1);
 
+        //need to manually shutdown threads
+        executorService.shutdown();
+
     }
 }
 
