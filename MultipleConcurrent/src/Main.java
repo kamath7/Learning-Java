@@ -1,8 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Main {
@@ -24,6 +23,21 @@ public class Main {
         executorService.execute(consumer1);
 
         //need to manually shutdown threads
+        Future<String> future = executorService.submit(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                System.out.println(ThreadColor.ANSI_YELLOW+ " Printed from callable class");
+                return "Callable result";
+            }
+        });
+
+        try{
+            System.out.println(future.get());
+        }catch (ExecutionException e){
+            System.out.println("Something's wrong!");
+        }catch(InterruptedException e){
+            System.out.println("Thread interrupted!");
+        }
         executorService.shutdown();
 
     }
