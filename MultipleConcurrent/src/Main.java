@@ -24,7 +24,7 @@ class MyProducer implements Runnable {
     private List<String> buffer;
     private String color;
 
-    private  ReentrantLock bufferLock;
+    private ReentrantLock bufferLock;
 
     public MyProducer(List<String> buffer, String color, ReentrantLock bufferLock) {
         this.buffer = buffer;
@@ -41,17 +41,24 @@ class MyProducer implements Runnable {
             try {
                 System.out.println(color + "Adding " + num);
                 bufferLock.lock();
-                buffer.add((num));
-                bufferLock.unlock();
+                try {
+                    buffer.add((num));
+                } finally {
+                    bufferLock.unlock();
+                }
                 Thread.sleep(random.nextInt(1000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
         System.out.println(color + "EOF. Exiting");
-            bufferLock.lock();
+        bufferLock.lock();
+        try {
             buffer.add("EOF");
+
+        } finally {
             bufferLock.unlock();
+        }
     }
 }
 
@@ -69,18 +76,18 @@ class Consumer implements Runnable {
 
     public void run() {
         while (true) {
-                bufferLock.lock();
-                if (buffer.isEmpty()) {
-                    bufferLock.unlock();
-                    continue;
-                }
-                if (buffer.get(0).equals("EOF")) {
-                    System.out.println(color + "exiting");
-                    bufferLock.unlock();
-                    break;
-                } else {
-                    System.out.println(color + "Removed " + buffer.remove(0));
-                }
+            bufferLock.lock();
+            if (buffer.isEmpty()) {
+                bufferLock.unlock();
+                continue;
+            }
+            if (buffer.get(0).equals("EOF")) {
+                System.out.println(color + "exiting");
+                bufferLock.unlock();
+                break;
+            } else {
+                System.out.println(color + "Removed " + buffer.remove(0));
+            }
             bufferLock.unlock();
         }
     }
