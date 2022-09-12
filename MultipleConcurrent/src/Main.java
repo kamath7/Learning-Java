@@ -78,40 +78,33 @@ class MyProducer implements Runnable {
 }
 
 class Consumer implements Runnable {
-    private List<String> buffer;
+    private ArrayBlockingQueue<String> buffer;
     private String color;
 
-    private ReentrantLock bufferLock;
 
-    public Consumer(List<String> buffer, String color, ReentrantLock bufferLock) {
+    public Consumer(ArrayBlockingQueue<String> buffer, String color) {
         this.buffer = buffer;
         this.color = color;
-        this.bufferLock = bufferLock;
     }
 
     public void run() {
 
-        int counter = 0;
+
         while (true) {
-            if (bufferLock.tryLock()) {
+
                 try {
                     if (buffer.isEmpty()) {
                         continue;
                     }
-                    System.out.println(color + " the counter -> "+counter);
-                    if (buffer.get(0).equals("EOF")) {
+                    if (buffer.peek().equals("EOF")) {
                         System.out.println(color + "exiting");
                         break;
                     } else {
-                        System.out.println(color + "Removed " + buffer.remove(0));
+                        System.out.println(color + "Removed " + buffer.take());
                     }
-                } finally {
-                    bufferLock.unlock();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            }else{
-                counter++;
-            }
-
         }
     }
 
