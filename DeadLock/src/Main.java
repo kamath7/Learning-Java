@@ -29,5 +29,24 @@ public class Main {
         }
     }
 
+    private  static class Thread2 extends  Thread {
+        @Override
+        public void run() {
+            synchronized (lock2){
+                System.out.println("Thread 2 has lock2 enabled");
+                try{
+                    Thread.sleep(100);
+                }catch (InterruptedException e){
+                    e.printStackTrace();
+                }
+                System.out.println("Waiting for lock: Thread 2");
+                synchronized (lock1){
+                    System.out.println("Thread2: has lock1 and lock2 both enabled");
+                }
+                System.out.println("Thread2: Released lock1");
+            }
+            System.out.println("Thread2: Release lock2. Exiting!");
+        }
+    }
 }
 
