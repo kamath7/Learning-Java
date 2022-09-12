@@ -9,14 +9,14 @@ public class Main {
 
     public static void main(String[] args) {
 
-        List<String> buffer = new ArrayList<String>();
-        ReentrantLock bufferLock = new ReentrantLock();
+        ArrayBlockingQueue<String> buffer = new ArrayBlockingQueue<String>(6);
+//        ReentrantLock bufferLock = new ReentrantLock();
 
-        ExecutorService executorService = Executors.newFixedThreadPool(3); //producer, consumers * 2
+        ExecutorService executorService = Executors.newFixedThreadPool(5); //producer, consumers * 2
 
-        MyProducer producer = new MyProducer(buffer, ThreadColor.ANSI_YELLOW, bufferLock);
-        Consumer consumer = new Consumer(buffer, ThreadColor.ANSI_CYAN, bufferLock);
-        Consumer consumer1 = new Consumer(buffer, ThreadColor.ANSI_WHITE, bufferLock);
+        MyProducer producer = new MyProducer(buffer, ThreadColor.ANSI_YELLOW);
+        Consumer consumer = new Consumer(buffer, ThreadColor.ANSI_CYAN);
+        Consumer consumer1 = new Consumer(buffer, ThreadColor.ANSI_WHITE);
 
         executorService.execute(producer);
         executorService.execute(consumer);
@@ -44,15 +44,13 @@ public class Main {
 }
 
 class MyProducer implements Runnable {
-    private List<String> buffer;
+    private ArrayBlockingQueue<String> buffer;
     private String color;
 
-    private ReentrantLock bufferLock;
 
-    public MyProducer(List<String> buffer, String color, ReentrantLock bufferLock) {
+    public MyProducer(ArrayBlockingQueue<String> buffer, String color) {
         this.buffer = buffer;
         this.color = color;
-        this.bufferLock = bufferLock;
     }
 
 
@@ -63,24 +61,18 @@ class MyProducer implements Runnable {
         for (String num : nums) {
             try {
                 System.out.println(color + "Adding " + num);
-                bufferLock.lock();
-                try {
-                    buffer.add((num));
-                } finally {
-                    bufferLock.unlock();
-                }
+                buffer.put(num);
                 Thread.sleep(random.nextInt(1000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
         System.out.println(color + "EOF. Exiting");
-        bufferLock.lock();
         try {
-            buffer.add("EOF");
+            buffer.put("EOF");
 
-        } finally {
-            bufferLock.unlock();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }
