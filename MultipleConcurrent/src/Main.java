@@ -26,16 +26,16 @@ public class Main {
         Future<String> future = executorService.submit(new Callable<String>() {
             @Override
             public String call() throws Exception {
-                System.out.println(ThreadColor.ANSI_YELLOW+ " Printed from callable class");
+                System.out.println(ThreadColor.ANSI_YELLOW + " Printed from callable class");
                 return "Callable result";
             }
         });
 
-        try{
+        try {
             System.out.println(future.get());
-        }catch (ExecutionException e){
+        } catch (ExecutionException e) {
             System.out.println("Something's wrong!");
-        }catch(InterruptedException e){
+        } catch (InterruptedException e) {
             System.out.println("Thread interrupted!");
         }
         executorService.shutdown();
@@ -92,6 +92,7 @@ class Consumer implements Runnable {
 
         while (true) {
 
+            synchronized (buffer){
                 try {
                     if (buffer.isEmpty()) {
                         continue;
@@ -105,6 +106,8 @@ class Consumer implements Runnable {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+            }
+
         }
     }
 
