@@ -10,7 +10,7 @@ public class SharedResource {
         return owner;
     }
 
-    public void setOwner(Worker owner) {
+    public synchronized void setOwner(Worker owner) {
         this.owner = owner;
     }
 }
