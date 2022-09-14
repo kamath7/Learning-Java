@@ -41,12 +41,16 @@ public class Main {
 //            }
 //        }, employees.get(0).getName(), employees.get(1).getName());
 
-        UpperConcat uc = ( s1,  s2) -> {
-            String result = s1.toUpperCase() + s2.toUpperCase();
-            return result;
-        };
+//        UpperConcat uc = ( s1,  s2) -> {
+//            String result = s1.toUpperCase() + s2.toUpperCase();
+//            return result;
+//        };
+//
+//        System.out.println(uc.upperAndConcat(employees.get(0).getName(), employees.get(1).getName()));
 
-        System.out.println(uc.upperAndConcat(employees.get(0).getName(), employees.get(1).getName()));
+        AnotherOne anotherOne = new AnotherOne();
+        String lal = anotherOne.doSomething();
+        System.out.println(lal);
     }
 
     public final static String stringey(UpperConcat uc, String s1, String s2){
@@ -83,4 +87,20 @@ class Employee {
 interface UpperConcat {
     public  String upperAndConcat(String s1, String s2);
 
+}
+
+class AnotherOne{
+
+    public String doSomething(){
+        System.out.println("My name is "+getClass().getSimpleName());//'AnotherOne'
+
+        return Main.stringey(new UpperConcat() {
+            @Override
+            public String upperAndConcat(String s1, String s2) {
+                System.out.println("My name is "+getClass().getSimpleName());// ''
+
+                return s1.toUpperCase() + s2.toUpperCase();
+            }
+        }, "String1", "String2");
+    }
 }
