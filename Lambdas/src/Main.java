@@ -21,32 +21,37 @@ public class Main {
         employees.add(seere);
         employees.add(typhy);
         employees.add(gokesh);
+        System.out.println("From special for loop");
 
-//        Collections.sort(employees, new Comparator<Employee>() {
-//            @Override
-//            public int compare(Employee emp1, Employee emp2) {
-//                return emp1.getName().compareTo(emp2.getName());
-//            }
-//        });
+        for (Employee emp : employees) {
+            System.out.println(emp.getName());
+            new Thread(() -> System.out.println(emp.getAge())).start();
+        }
+        System.out.println("__________________________");
 
+        System.out.println("For Loop");
+
+        for (int i = 0; i < employees.size(); i++) {
+            Employee employee = employees.get(i);
+            System.out.println(employee.getName());
+            new Thread(() -> System.out.println(employee.getAge())).start();
+        }
+        System.out.println("_______________________");
+        for (Employee emp : employees) {
+            System.out.println(emp.getName());
+            new Thread(() -> System.out.println(emp.getAge())).start();
+        }
+
+        System.out.println("_______________________");
+        employees.forEach(employee -> {
+            System.out.println(employee.getName());
+            System.out.println(employee.getAge());
+        });
+        System.out.println("_______________________");
         Collections.sort(employees, (emp1, emp2) -> emp1.getName().compareTo(emp2.getName()));
         for (Employee employee : employees) {
             System.out.println(employee.getName());
         }
-
-//        String someString = stringey(new UpperConcat() {
-//            @Override
-//            public String upperAndConcat(String s1, String s2) {
-//                return s1.toUpperCase() + s2.toUpperCase();
-//            }
-//        }, employees.get(0).getName(), employees.get(1).getName());
-
-//        UpperConcat uc = ( s1,  s2) -> {
-//            String result = s1.toUpperCase() + s2.toUpperCase();
-//            return result;
-//        };
-//
-//        System.out.println(uc.upperAndConcat(employees.get(0).getName(), employees.get(1).getName()));
 
         AnotherOne anotherOne = new AnotherOne();
         String lal = anotherOne.doSomething();
@@ -93,15 +98,31 @@ class AnotherOne {
 
     public String doSomething() {
 
+        int i = 0;
+//        i++;  - will result in java: local variables referenced from a lambda expression must be final or effectively final
         UpperConcat uc = (s1, s2) -> {
             System.out.println("I'm a lambda. My name is " + getClass().getSimpleName());
+            System.out.println("i in lambda is " + i);
             String res = s1.toUpperCase() + s2.toUpperCase();
             return res;
         };
+//        System.out.println(res); -> Won't work
         return Main.stringey(uc, "String1", "String2");
+    }
 
+    public void printVal() {
+        int someNum = 25;
 
+        Runnable r = () -> {
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("Value is " + someNum);
+        };
 
+        new Thread(r).start();
     }
 }
 
