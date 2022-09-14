@@ -22,13 +22,14 @@ public class Main {
         employees.add(typhy);
         employees.add(gokesh);
 
-        Collections.sort(employees, new Comparator<Employee>() {
-            @Override
-            public int compare(Employee emp1, Employee emp2) {
-                return emp1.getName().compareTo(emp2.getName());
-            }
-        });
+//        Collections.sort(employees, new Comparator<Employee>() {
+//            @Override
+//            public int compare(Employee emp1, Employee emp2) {
+//                return emp1.getName().compareTo(emp2.getName());
+//            }
+//        });
 
+        Collections.sort(employees, (Employee emp1, Employee emp2) -> emp1.getName().compareTo(emp2.getName()));
         for (Employee employee: employees){
             System.out.println(employee.getName());
         }
