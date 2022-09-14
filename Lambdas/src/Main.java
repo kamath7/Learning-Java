@@ -91,16 +91,25 @@ interface UpperConcat {
 
 class AnotherOne{
 
-    public String doSomething(){
-        System.out.println("My name is "+getClass().getSimpleName());//'AnotherOne'
+    public String doSomething() {
 
-        return Main.stringey(new UpperConcat() {
-            @Override
-            public String upperAndConcat(String s1, String s2) {
-                System.out.println("My name is "+getClass().getSimpleName());// ''
-
-                return s1.toUpperCase() + s2.toUpperCase();
-            }
-        }, "String1", "String2");
+        UpperConcat uc = (s1, s2) -> {
+            System.out.println("I'm a lambda. My name is " + getClass().getSimpleName());
+            String res = s1.toUpperCase() + s2.toUpperCase();
+            return res;
+        };
+        System.out.println("Outside lambda. My name is "+getClass().getSimpleName());
+        return Main.stringey(uc, "String1","String2");
     }
 }
+
+//        System.out.println("My name is "+getClass().getSimpleName());//'AnotherOne'
+//
+//        return Main.stringey(new UpperConcat() {
+//            @Override
+//            public String upperAndConcat(String s1, String s2) {
+//                System.out.println("My name is "+getClass().getSimpleName());// ''
+//
+//                return s1.toUpperCase() + s2.toUpperCase();
+//            }
+//        }, "String1", "String2");
