@@ -29,7 +29,7 @@ public class Main {
 //            }
 //        });
 
-        Collections.sort(employees, (Employee emp1, Employee emp2) -> emp1.getName().compareTo(emp2.getName()));
+        Collections.sort(employees, ( emp1,  emp2) -> emp1.getName().compareTo(emp2.getName()));
         for (Employee employee: employees){
             System.out.println(employee.getName());
         }
