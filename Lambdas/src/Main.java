@@ -93,13 +93,27 @@ class AnotherOne{
 
     public String doSomething() {
 
-        UpperConcat uc = (s1, s2) -> {
-            System.out.println("I'm a lambda. My name is " + getClass().getSimpleName());
-            String res = s1.toUpperCase() + s2.toUpperCase();
-            return res;
-        };
-        System.out.println("Outside lambda. My name is "+getClass().getSimpleName());
-        return Main.stringey(uc, "String1","String2");
+//        UpperConcat uc = (s1, s2) -> {
+//            System.out.println("I'm a lambda. My name is " + getClass().getSimpleName());
+//            String res = s1.toUpperCase() + s2.toUpperCase();
+//            return res;
+//        };
+        final int i = 0; // needs to be final because doesn't belong to the anon class
+        {
+            UpperConcat uc = new UpperConcat() {
+                @Override
+                public String upperAndConcat(String s1, String s2) {
+                    System.out.println("within anon class "+i);
+                    return s1.toUpperCase() + s2.toUpperCase();
+                }
+            };
+//            i++;
+            System.out.println("value is "+i);
+            System.out.println("Outside lambda. My name is "+getClass().getSimpleName());
+            return Main.stringey(uc, "String1","String2");
+
+        }
+
     }
 }
 
