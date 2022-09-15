@@ -8,12 +8,12 @@ import java.util.function.Supplier;
 public class Main {
     public static void main(String[] args) {
 
-        Employee nata = new Employee("Nata", 69);
-        Employee seere = new Employee("Seere", 30);
-        Employee typhy = new Employee("Typhy", 30);
-        Employee gokesh = new Employee("Gokesh", 21);
-        Employee kami = new Employee("Kami", 10);
-        Employee pujit = new Employee("Pujit", 4);
+        Employee nata = new Employee("Nata Nata", 69);
+        Employee seere = new Employee("Seere chakka", 30);
+        Employee typhy = new Employee("Typhy gay", 30);
+        Employee gokesh = new Employee("Gokesh gokesh", 21);
+        Employee kami = new Employee("Kami mami", 10);
+        Employee pujit = new Employee("Pujit ps", 4);
 
         List<Employee> employees = new ArrayList<>();
 
@@ -44,6 +44,11 @@ public class Main {
         for (int i = 0 ; i < 10 ; i++){
             System.out.println(supplier.get());
         }
+
+        employees.forEach(employee -> {
+            String lname = employee.getName().substring(employee.getName().indexOf(' ') + 1);
+            System.out.println("Last Name is "+lname);
+        });
     }
 
     private static void printByAge(List<Employee> employees, String ageTxt, Predicate<Employee> ageCondition) {
