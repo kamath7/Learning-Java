@@ -22,6 +22,13 @@ public class Main {
         employees.add(pujit);
 
         printByAge(employees, "Employees over 25", employee -> employee.getAge() > 25);
+        printByAge(employees, "Employess below 25", employee -> employee.getAge() < 25);
+        printByAge(employees, "Employees below 20", new Predicate<Employee>() {
+            @Override
+            public boolean test(Employee employee) {
+                return employee.getAge() < 20;
+            }
+        });
     }
 
     private static void printByAge(List<Employee> employees, String ageTxt, Predicate<Employee> ageCondition) {
