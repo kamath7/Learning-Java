@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.function.IntPredicate;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class Main {
     public static void main(String[] args) {
@@ -36,6 +38,12 @@ public class Main {
         System.out.println(intp.test(70));
         System.out.println(intp.test(70-6));
         System.out.println(intp.and(intp2).test(73));
+
+        Random random = new Random();
+        Supplier<Integer> supplier = () -> random.nextInt(100);
+        for (int i = 0 ; i < 10 ; i++){
+            System.out.println(supplier.get());
+        }
     }
 
     private static void printByAge(List<Employee> employees, String ageTxt, Predicate<Employee> ageCondition) {
