@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.IntPredicate;
 import java.util.function.Predicate;
 
 public class Main {
@@ -29,6 +30,10 @@ public class Main {
                 return employee.getAge() < 20;
             }
         });
+
+        IntPredicate intp = i -> i > 69;
+        System.out.println(intp.test(70));
+        System.out.println(intp.test(70-6));
     }
 
     private static void printByAge(List<Employee> employees, String ageTxt, Predicate<Employee> ageCondition) {
