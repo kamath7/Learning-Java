@@ -70,6 +70,11 @@ public class Main {
             }
         }
 
+        Function<Employee, String> upperCase1 = employee -> employee.getName().toUpperCase();
+        Function <String, String> firstName = name -> name.substring(0, name.indexOf(' '));
+        Function chainedFunc = upperCase1.andThen(firstName);
+        System.out.println(chainedFunc.apply(employees.get(0)));
+
     }
 
     private static String getAName(Function<Employee, String> getName, Employee employee){
