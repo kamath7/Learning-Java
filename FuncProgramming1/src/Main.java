@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Function;
 import java.util.function.IntPredicate;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
@@ -49,6 +50,13 @@ public class Main {
             String lname = employee.getName().substring(employee.getName().indexOf(' ') + 1);
             System.out.println("Last Name is "+lname);
         });
+
+        Function <Employee, String> getLastName = (Employee employee) ->{
+            return employee.getName().substring(employee.getName().indexOf(' ') + 1);
+        };
+
+        String lastName = getLastName.apply(employees.get(2));
+        System.out.println(lastName);
     }
 
     private static void printByAge(List<Employee> employees, String ageTxt, Predicate<Employee> ageCondition) {
