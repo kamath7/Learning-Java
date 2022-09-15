@@ -32,8 +32,10 @@ public class Main {
         });
 
         IntPredicate intp = i -> i > 69;
+        IntPredicate intp2 = i -> i < 100;
         System.out.println(intp.test(70));
         System.out.println(intp.test(70-6));
+        System.out.println(intp.and(intp2).test(73));
     }
 
     private static void printByAge(List<Employee> employees, String ageTxt, Predicate<Employee> ageCondition) {
