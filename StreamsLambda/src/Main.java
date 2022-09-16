@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,6 +11,10 @@ public class Main {
 
         someNumbers.stream().map(String::toUpperCase).filter(s -> s.startsWith("G")).sorted().forEach(System.out::println);
 
+        Stream<String> ioNumberStream = Stream.of("I20","I69","I89","I25");
+        Stream<String> inNumberStream = Stream.of("N40","N36","I90","I10","O7","I20");
+        Stream<String> concatStream = Stream.concat(ioNumberStream, inNumberStream);
+        System.out.println(concatStream.count());
         //Standard approach
 //        someNumbers.forEach(number -> {
 //            if (number.toUpperCase().startsWith("G")) {
