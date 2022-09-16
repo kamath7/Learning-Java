@@ -14,7 +14,10 @@ public class Main {
         Stream<String> ioNumberStream = Stream.of("I20","I69","I89","I25");
         Stream<String> inNumberStream = Stream.of("N40","N36","I90","I10","O7","I20");
         Stream<String> concatStream = Stream.concat(ioNumberStream, inNumberStream);
-        System.out.println(concatStream.count());
+//        System.out.println(concatStream.count());
+//        System.out.println(concatStream.distinct().count());
+        System.out.println(concatStream.distinct().peek(System.out::println).count());
+
         //Standard approach
 //        someNumbers.forEach(number -> {
 //            if (number.toUpperCase().startsWith("G")) {
