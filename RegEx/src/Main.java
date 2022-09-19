@@ -22,5 +22,9 @@ public class Main {
         System.out.println(alphaNum.replaceAll("[aei]", "Replacing a letter"));
         System.out.println(alphaNum2.replaceAll("[aei][fj]","x"));
 
+        System.out.println("harry".replaceAll("[Hh]arry", "Harry"));
+        String someText = "abbcbe,mmaskksaid";
+
+        System.out.println(someText.replaceAll("[^aj]", "X")); //matches all characters that are not aj
     }
 }
