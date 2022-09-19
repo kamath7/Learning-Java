@@ -23,10 +23,18 @@ public class Main {
         System.out.println(alphaNum2.replaceAll("[aei][fj]","x"));
 
         System.out.println("harry".replaceAll("[Hh]arry", "Harry"));
-        String someText = "abbcbe,mmaskksaid";
+        String someText = "abbcbe,123213mmaskksaid";
 
         System.out.println(someText.replaceAll("[^aj]", "X")); //matches all characters that are not aj
         System.out.println(someText.replaceAll("[abcdef345678]","X"));
         System.out.println(someText.replaceAll("[a-f3-8]", "X"));
+        System.out.println(someText.replaceAll("(?i)[a-f3-8]", "X"));
+        System.out.println(someText.replaceAll("[0-9]","X"));
+        System.out.println(someText.replaceAll("\\d","X"));
+        System.out.println(someString.replaceAll("\\D","X"));
+
+        String someWhiteSpace = "Blanks and Tabs \t and everything else \n";
+        System.out.println(someWhiteSpace);
+        System.out.println(someWhiteSpace.replaceAll("\\s",""));
     }
 }
