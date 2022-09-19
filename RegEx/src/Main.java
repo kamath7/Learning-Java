@@ -1,3 +1,6 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Main {
     public static void main(String[] args) {
         String someString = "The wonderful part of strings are they are strings";
@@ -48,6 +51,17 @@ public class Main {
         System.out.println(alnum.replaceAll("^anso{2,5}", "YYY"));
         System.out.println(alnum.replaceAll("h+i*j", "Y"));
 
+        StringBuilder htmlText = new StringBuilder("<h1>Some Heading </h1>");
+        htmlText.append("<h2>Some More </h2>");
+        htmlText.append("<p> Something more </p>");
+        htmlText.append("<p> Something more </p>");
+        htmlText.append("<h3>Moreee </h3>");
+
+        String pattern = ".*<h2>.*";
+        Pattern pattern1 = Pattern.compile(pattern);
+
+        Matcher matcher = pattern1.matcher(htmlText);
+        System.out.println(matcher.matches());
 
     }
 }
