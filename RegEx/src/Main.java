@@ -9,5 +9,16 @@ public class Main {
         System.out.println(alphaNum.replaceAll("a","ewesome"));
 
         System.out.println(alphaNum.replaceAll("^abc","OorLalle"));
+
+        String alphaNum2 = "abcDeeefk1993abcDeeekkalo";
+        System.out.println(alphaNum2.replaceAll("^abc","OorLalle")); //only matches start of string
+
+        System.out.println(alphaNum.matches("^hello")); //false
+        System.out.println(alphaNum.matches("^abc")); //false
+
+        System.out.println(alphaNum.replaceAll("kalo$","TheEnd")); //end
+
+        System.out.println(alphaNum.replaceAll("[aei]", "X"));
+
     }
 }
