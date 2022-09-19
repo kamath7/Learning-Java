@@ -26,5 +26,12 @@ public class Main {
 //        });
 //        gNums.sort((s1, s2) -> s1.compareTo(s2));
 //        gNums.forEach((s) -> System.out.println(s));
+
+        Employee lalle1 = new Employee("Lalle1",30);
+        Employee lalle2 = new Employee("Lalle2",20);
+        Employee lalle3 = new Employee("Lalle3",90);
+        Employee lalle4 = new Employee("Lalle4",46);
+        Employee lalle5 = new Employee("Lalle5",22);
+        Employee lalle6 = new Employee("Lalle6",31);
     }
 }
