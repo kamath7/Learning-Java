@@ -42,9 +42,12 @@ public class Main {
 
         String alnum = "ansofnaosinaocnaosnc1098212094810294..as";
         System.out.println(alnum.replaceAll("^anso","YYY"));
-        System.out.println(alnum.replaceAll("^an{3}","YYY"));
+        System.out.println(alnum.replaceAll("^an{1}","YYY"));
         System.out.println(alnum.replaceAll("^ansof+","YYY"));
         System.out.println(alnum.replaceAll("^anso*", "YYY"));
+        System.out.println(alnum.replaceAll("^anso{2,5}", "YYY"));
+        System.out.println(alnum.replaceAll("h+i*j", "Y"));
+
 
     }
 }
