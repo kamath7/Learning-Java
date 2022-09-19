@@ -33,5 +33,22 @@ public class Main {
         Employee lalle4 = new Employee("Lalle4",46);
         Employee lalle5 = new Employee("Lalle5",22);
         Employee lalle6 = new Employee("Lalle6",31);
+
+        Department hr = new Department("HR");
+        hr.addEmployee(lalle1);
+        hr.addEmployee(lalle2);
+        hr.addEmployee(lalle4);
+        Department dev = new Department("DEV");
+        dev.addEmployee(lalle3);
+        dev.addEmployee(lalle5);
+        dev.addEmployee(lalle6);
+
+        List<Department> departments = new ArrayList<>();
+        departments.add(hr);
+        departments.add(dev);
+
+        departments.stream()
+                .flatMap(department -> department.getEmployees().stream())
+                .forEach(System.out::println);
     }
 }
