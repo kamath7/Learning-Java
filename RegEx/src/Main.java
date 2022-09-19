@@ -40,6 +40,11 @@ public class Main {
         System.out.println(someWhiteSpace.replaceAll("\\w", "sk"));
         System.out.println(someWhiteSpace.replaceAll("\\b", "X")); //covers first and last char
 
+        String alnum = "ansofnaosinaocnaosnc1098212094810294..as";
+        System.out.println(alnum.replaceAll("^anso","YYY"));
+        System.out.println(alnum.replaceAll("^an{3}","YYY"));
+        System.out.println(alnum.replaceAll("^ansof+","YYY"));
+        System.out.println(alnum.replaceAll("^anso*", "YYY"));
 
     }
 }
