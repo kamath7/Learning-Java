@@ -7,5 +7,7 @@ public class Main {
 
         String alphaNum = "abcDeeefk1993kkalo";
         System.out.println(alphaNum.replaceAll("a","ewesome"));
+
+        System.out.println(alphaNum.replaceAll("^abc","OorLalle"));
     }
 }
