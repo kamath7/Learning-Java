@@ -19,6 +19,8 @@ public class Main {
         System.out.println(alphaNum.replaceAll("kalo$","TheEnd")); //end
 
         System.out.println(alphaNum.replaceAll("[aei]", "X"));
+        System.out.println(alphaNum.replaceAll("[aei]", "Replacing a letter"));
+        System.out.println(alphaNum2.replaceAll("[aei][fj]","x"));
 
     }
 }
