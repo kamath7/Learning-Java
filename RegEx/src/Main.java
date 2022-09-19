@@ -26,5 +26,7 @@ public class Main {
         String someText = "abbcbe,mmaskksaid";
 
         System.out.println(someText.replaceAll("[^aj]", "X")); //matches all characters that are not aj
+        System.out.println(someText.replaceAll("[abcdef345678]","X"));
+        System.out.println(someText.replaceAll("[a-f3-8]", "X"));
     }
 }
