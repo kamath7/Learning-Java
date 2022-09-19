@@ -36,5 +36,10 @@ public class Main {
         String someWhiteSpace = "Blanks and Tabs \t and everything else \n";
         System.out.println(someWhiteSpace);
         System.out.println(someWhiteSpace.replaceAll("\\s",""));
+        System.out.println(someWhiteSpace.replaceAll("\\S",""));
+        System.out.println(someWhiteSpace.replaceAll("\\w", "sk"));
+        System.out.println(someWhiteSpace.replaceAll("\\b", "X")); //covers first and last char
+
+
     }
 }
