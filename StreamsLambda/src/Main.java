@@ -75,7 +75,7 @@ public class Main {
                 .filter(s -> {
                     System.out.println(s);
                     return s.length() == 3;
-                });
+                }).count();
 
     }
 }
