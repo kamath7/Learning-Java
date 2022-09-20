@@ -88,5 +88,7 @@ public class Main {
         while(h2TextMatcher.find()){
             System.out.println("Occurrence: "+h2TextMatcher.group(2));
         }
+
+        System.out.println("gunturgurunath".replaceAll("[G|g]untur","Puttur"));
     }
 }
