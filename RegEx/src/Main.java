@@ -57,11 +57,19 @@ public class Main {
         htmlText.append("<p> Something more </p>");
         htmlText.append("<h3>Moreee </h3>");
 
-        String pattern = ".*<h2>.*";
+        String pattern = "<h2>";
         Pattern pattern1 = Pattern.compile(pattern);
 
         Matcher matcher = pattern1.matcher(htmlText);
         System.out.println(matcher.matches());
 
+
+        matcher.reset();
+        int count = 0 ;
+
+        while(matcher.find()){
+            count++;
+            System.out.println("Occurence "+count+" : "+matcher.start() +" to "+matcher.end());
+        }
     }
 }
