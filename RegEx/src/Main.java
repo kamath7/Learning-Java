@@ -55,7 +55,7 @@ public class Main {
         htmlText.append("<h2>Some More </h2>");
         htmlText.append("<p> Something more </p>");
         htmlText.append("<p> Something more </p>");
-        htmlText.append("<h3>Moreee </h3>");
+        htmlText.append("<h2>Moreee </h2>");
 
         String pattern = "(<h2>)";
         Pattern pattern1 = Pattern.compile(pattern);
@@ -71,7 +71,7 @@ public class Main {
             count++;
             System.out.println("Occurence "+count+" : "+matcher.start() +" to "+matcher.end());
         }
-        String h2GroupPattern = "(<h2>.*</h2>)";
+        String h2GroupPattern = "(<h2>.*?</h2>)";
         Pattern groupPattern = Pattern.compile(h2GroupPattern);
         Matcher groupMatcher = groupPattern.matcher(htmlText);
         System.out.println(groupMatcher.matches());
