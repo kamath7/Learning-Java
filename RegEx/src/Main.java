@@ -90,5 +90,15 @@ public class Main {
         }
 
         System.out.println("gunturgurunath".replaceAll("[G|g]untur","Puttur"));
+        String tvTest = "tsst21tvttktot";
+        String tNotV = "t(?!v)";
+        Pattern tNotVPattern = Pattern.compile(tNotV);
+        Matcher tnotVMatcher = tNotVPattern.matcher(tvTest);
+
+        count = 0 ;
+        while(tnotVMatcher.find()){
+            count++;
+            System.out.println("Occurence "+count+" : "+tnotVMatcher.start() +" to "+tnotVMatcher.end());
+        }
     }
 }
