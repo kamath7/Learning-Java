@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 
+import static org.junit.Assert.assertEquals;
+
 @RunWith(Parameterized.class)
 public class BankAccounttTestParametrized {
 
@@ -34,4 +36,9 @@ public class BankAccounttTestParametrized {
         });
     }
 
+    @org.junit.Test
+    public void getBalance_deposit() {
+        bankAccount.deposit(amount, branch);
+        assertEquals(expected, bankAccount.getBalance(), 0);
+    }
 }
