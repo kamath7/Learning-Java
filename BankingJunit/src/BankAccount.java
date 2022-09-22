@@ -20,6 +20,9 @@ public class BankAccount {
     }
 
     public double withdraw(double amt, boolean branch){
+        if((amt > 500) & !branch){
+            throw new IllegalArgumentException();
+        }
         balance -= amt;
         return balance;
     }

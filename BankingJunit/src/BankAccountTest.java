@@ -3,10 +3,11 @@ import static org.junit.Assert.*;
 public class BankAccountTest {
 
     private BankAccount bankAccount;
+    private static int count;
 
     @org.junit.BeforeClass
     public static void beforeClass(){
-        System.out.println("Executes once before test cases");
+        System.out.println("Executes once before test cases. Count "+count++);
     }
 
     @org.junit.Before
@@ -22,8 +23,10 @@ public class BankAccountTest {
     }
 
     @org.junit.Test
-    public void withdraw() {
-        fail("Yet to be implemented");
+    public void withdraw_branch() {
+        double balance = bankAccount.withdraw(600, true);
+        assertEquals(400.00, balance, 0);
+
     }
 
     @org.junit.Test
@@ -45,6 +48,12 @@ public class BankAccountTest {
 
     @org.junit.AfterClass
     public static void afterClass(){
-        System.out.println("After test cases are run!");
+        System.out.println("After test cases are run! Count "+count++);
+    }
+
+    @org.junit.After
+    public void tearDown(){
+        count += count;
+        System.out.println(count);
     }
 }
