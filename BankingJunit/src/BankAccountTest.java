@@ -30,8 +30,19 @@ public class BankAccountTest {
     }
 
     @org.junit.Test(expected = IllegalArgumentException.class)
+//    @org.junit.Test
     public void withdraw_no_branch() throws Exception {
         bankAccount.withdraw(600, false);
+        fail("Illegal Arg exception");
+
+        //older way
+//        try{
+//            bankAccount.withdraw(600, false);
+//            fail("Illegal Arg exception");
+//
+//        }catch(IllegalArgumentException e){
+//            e.printStackTrace();
+//        }
     }
 
     @org.junit.Test
