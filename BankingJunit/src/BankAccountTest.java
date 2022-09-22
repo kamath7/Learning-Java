@@ -13,7 +13,7 @@ public class BankAccountTest {
     @org.junit.Before
     //before each test
     public void setUp() {
-        bankAccount = bankAccount = new BankAccount("Lalle", "Nata", 1000, BankAccount.CHECKING);
+        bankAccount = new BankAccount("Lalle", "Nata", 1000, BankAccount.CHECKING);
     }
 
     @org.junit.Test
