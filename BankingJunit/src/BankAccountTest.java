@@ -4,10 +4,15 @@ public class BankAccountTest {
 
     private BankAccount bankAccount;
 
+    @org.junit.BeforeClass
+    public static void beforeClass(){
+        System.out.println("Executes once before test cases");
+    }
+
     @org.junit.Before
+    //before each test
     public void setUp(){
         bankAccount = bankAccount = new BankAccount("Lalle","Nata",1000, BankAccount.CHECKING);
-        System.out.println("Running");
     }
 
     @org.junit.Test
@@ -36,5 +41,10 @@ public class BankAccountTest {
     @org.junit.Test
     public void isChecking_true(){
         assertTrue("Account is not a checking account",bankAccount.isChecking());
+    }
+
+    @org.junit.AfterClass
+    public static void afterClass(){
+        System.out.println("After test cases are run!");
     }
 }
