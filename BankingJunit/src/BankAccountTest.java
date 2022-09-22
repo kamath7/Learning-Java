@@ -31,6 +31,6 @@ public class BankAccountTest {
     @org.junit.Test
     public void isChecking_true(){
         BankAccount bankAccount = new BankAccount("Lalle","Nata",1000, BankAccount.CHECKING);
-        assertTrue(bankAccount.isChecking());
+        assertTrue("Account is not a checking account",bankAccount.isChecking());
     }
 }
