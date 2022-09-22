@@ -29,6 +29,12 @@ public class BankAccountTest {
 
     }
 
+    @org.junit.Test(expected = IllegalArgumentException.class)
+    public void withdraw_no_branch() throws Exception{
+        double balance = bankAccount.withdraw(600, false);
+        assertEquals(1200, balance, 0);
+    }
+
     @org.junit.Test
     public void getBalance_deposit() {
         double balance = bankAccount.deposit(200.00D,true);
