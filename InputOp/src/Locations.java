@@ -47,10 +47,12 @@ public class Locations implements Map<Integer, Location> {
                     endOfile = true;
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (InvalidClassException e1) {
+            e1.printStackTrace();
+        } catch (IOException e2) {
+            e2.printStackTrace();
+        } catch (ClassNotFoundException e3) {
+            e3.printStackTrace();
         }
 //
 //            while (!endOfile) {
