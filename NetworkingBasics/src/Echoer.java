@@ -22,6 +22,12 @@ public class Echoer extends Thread {
                 if (echoStr.equals("exit")) {
                     break;
                 }
+
+                try {
+                    Thread.sleep(15000);
+                } catch (InterruptedException e) {
+                    // TODO: handle exception
+                }
                 output.println(echoStr);
             }
 
