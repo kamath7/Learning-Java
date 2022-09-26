@@ -22,6 +22,9 @@ public class Main {
 
             URL url3 = resolvedURI3.toURL();
             System.out.println("URL from URI3 is "+url3);
+
+            URI relativeUri = baseUri.relativize(resolvedURI2);
+            System.out.println("Relative uri "+relativeUri);
 //            System.out.println("Scheme = "+uri.getScheme());
 //            System.out.println("Scheme - specific part"+uri.getSchemeSpecificPart());
 //            System.out.println("Authority "+uri.getAuthority());
