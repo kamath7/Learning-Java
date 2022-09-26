@@ -6,9 +6,11 @@ import java.net.URL;
 public class Main {
     public static void main(String[] args) {
         try {
-            URI uri = new URI("db://username:password@myserver.com:500/catalogue/clothes?shoes=running#nike");
+            URI baseUri = new URI("http://username:password@myserver.com:5000");
+            URI uri = new URI("/catalogue/clothes?shoes=running#nike");
+            URI resolvedURI = baseUri.resolve(uri);
 //            uri = new URI("hello");
-            URL url = uri.toURL();
+            URL url = resolvedURI.toURL();
             System.out.println("URL from URI is "+url);
             System.out.println("Scheme = "+uri.getScheme());
             System.out.println("Scheme - specific part"+uri.getSchemeSpecificPart());
