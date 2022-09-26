@@ -5,6 +5,8 @@ public class Main {
     public static void main(String[] args) {
         try {
             URI uri = new URI("db://username:password@myserver.com:500/catalogue/clothes?shoes=running#nike");
+            uri = new URI("hello");
+
             System.out.println("Scheme = "+uri.getScheme());
             System.out.println("Scheme - specific part"+uri.getSchemeSpecificPart());
             System.out.println("Authority "+uri.getAuthority());
