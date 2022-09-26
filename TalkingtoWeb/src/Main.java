@@ -1,28 +1,30 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
+import java.net.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        try{
+        try {
             URL url = new URL("http://example.org");
 
-            BufferedReader inputStream = new BufferedReader(new InputStreamReader(url.openStream()));
+            URLConnection urlConnection = url.openConnection();
+            urlConnection.setDoOutput(true);
+            urlConnection.connect();
+            ;
+
+            BufferedReader inputStream = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
             //            URI uri = url.toURI();
             String line = "";
-            while (line!=null){
+            while (line != null) {
                 line = inputStream.readLine();
                 System.out.println(line);
             }
             inputStream.close();
-        }catch (MalformedURLException e){
+        } catch (MalformedURLException e) {
             e.printStackTrace();
-        }catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
