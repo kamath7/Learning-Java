@@ -11,6 +11,26 @@ public class Main {
         try {
             URL url = new URL("http://example.org");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("User-Agent", "Chrome");
+
+
+            int responseCode = connection.getResponseCode();
+            System.out.println("Response code - " + responseCode);
+            connection.setReadTimeout(30000);
+
+            if (responseCode != 200) {
+                System.out.println("Error in reading webpage");
+                return;
+            }
+
+            BufferedReader inputStream = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+
+            String line = "";
+            while ((line = inputStream.readLine()) != null)  {
+                System.out.println(line);
+            }
+            inputStream.close();
             //            URLConnection connection = url.openConnection();
 
 
