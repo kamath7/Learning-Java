@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         try {
-            URL url = new URL("http://example.org");
+            URL url = new URL("http://example.org/somepage.html");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setRequestProperty("User-Agent", "Chrome");
