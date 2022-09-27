@@ -10,25 +10,27 @@ public class Main {
 
         try {
             URL url = new URL("http://example.org");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            //            URLConnection connection = url.openConnection();
 
-            URLConnection urlConnection = url.openConnection();
-            urlConnection.setDoOutput(true);
-            urlConnection.connect();
+
+//            connection.setDoOutput(true);
+//            connection.connect();
             ;
 
-            BufferedReader inputStream = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-            //            URI uri = url.toURI();
-
-            Map<String, List<String>> headerFields = urlConnection.getHeaderFields();
-            for(Map.Entry<String, List<String>> entry: headerFields.entrySet()){
-                String key = entry.getKey();
-                List<String> val = entry.getValue();
-                System.out.println("----Key -> "+key);
-
-                for(String string: val){
-                    System.out.println("Value -> "+val);
-                }
-            }
+//            BufferedReader inputStream = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+//            //            URI uri = url.toURI();
+//
+//            Map<String, List<String>> headerFields = connection.getHeaderFields();
+//            for(Map.Entry<String, List<String>> entry: headerFields.entrySet()){
+//                String key = entry.getKey();
+//                List<String> val = entry.getValue();
+//                System.out.println("----Key -> "+key);
+//
+//                for(String string: val){
+//                    System.out.println("Value -> "+val);
+//                }
+//            }
 //            String line = "";
 //            while (line != null) {
 //                line = inputStream.readLine();
